@@ -6,31 +6,31 @@ const StyledMainLayout = styled.div`
   .header {
     width: 100%;
     height: 50px;
-    background-color: green;
+    background-color: ${props => props.theme.accentBackgroundColor};
   }
   
   .content {
     width: 100%;
     height: calc(100vh - 70px);
     overflow: auto;
-    background-color: aquamarine;
+    background-color: ${props => props.theme.baseBackgroundColor};
   }
   
   .footer {
     width: 100%;
     height: 20px;
-    background-color: green;
+    background-color: ${props => props.theme.accentBackgroundColor};
   }  
 `
 
 const MainLayout = (props) => {
     return (
         <StyledMainLayout>
-            <div className={'header'}></div>
-            <div className={'content'}>
+            <header className={'header'}></header>
+            <main className={'content'}>
                 {props.children}
-            </div>
-            <div className={"footer"}></div>
+            </main>
+            <footer className={"footer"}></footer>
         </StyledMainLayout>
     );
 }

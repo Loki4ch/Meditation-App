@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import MainLayout from './Layouts/MainLayout.jsx';
+import GlobalThemeWrapper from './HOC/GlobalThemeWrapper.jsx'
 
 const App = (props) => {
     const [someText, setSomeText] = useState('Hello');
@@ -10,12 +11,14 @@ const App = (props) => {
     // }
 
     return (
-        <MainLayout>
-            <div onClick={() => {setSomeText('Hi')}}>
-                {someText}
-                {props.innerText}
-            </div>
-        </MainLayout>
+        <GlobalThemeWrapper>
+            <MainLayout>
+                <div onClick={() => {setSomeText('Hi')}}>
+                    {someText}
+                    {props.innerText}
+                </div>
+            </MainLayout>
+        </GlobalThemeWrapper>
     )
 }
 
