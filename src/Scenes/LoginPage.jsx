@@ -4,25 +4,32 @@ import styled from 'styled-components';
 import {Form, Formik} from "formik";
 import FormikInput from "../Components/FormikFields/FormikInput.jsx";
 import {useNavigate} from 'react-router-dom';
+import {useDispatch} from "react-redux";
+import {userLoggedIn} from "../store/userSlice.js";
+
 const StyledLoginPage = styled.div`
   background-color: ${props => props.theme.partBackgroundTheme};
 `
 
 const LoginPage = (props) => {
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     return (
         <StyledLoginPage>
-            <Formik  validate={(formData) => {
+            <Formik onSubmit={(formValues) => {
+                dispatch(userLoggedIn({id: formValues.password, name: formValues.login}));
+                navigate('/list');
+                }
+            } validate={(formData) => {
                 let isValid = true;
                 const errors = {};
 
-                if (!formData) {
+                if (!formData.login) {
                     isValid = false;
                     errors.login = 'Login is mandatory';
                 }
 
-                if (!formData) {
+                if (!formData.password) {
                     isValid = false;
                     errors.password = 'Password is mandatory';
                 }

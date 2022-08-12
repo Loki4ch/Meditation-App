@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {Outlet} from "react-router-dom";
 
 const StyledMainLayout = styled.div`
   .header {
@@ -29,6 +30,7 @@ const MainLayout = (props) => {
             <header className={'header'}></header>
             <main className={'content'}>
                 {props.children}
+                <Outlet/>
             </main>
             <footer className={"footer"}></footer>
         </StyledMainLayout>

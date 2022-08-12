@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import {Route, Routes, Outlet, Navigate, useLocation} from 'react-router-dom';
 import LoginPage from "../Scenes/LoginPage.jsx";
 import MainLayout from "../Layouts/MainLayout.jsx";
+import {useSelector} from "react-redux";
 
 const RootRouter = (props) => {
-    // const user = useContext();
-    const user = false;
     const [redirectLocation, setRedirectLocation] = useState();
     const {location} = useLocation();
+    const user = useSelector(store => store.userSlice);
 
     const renderForGuestUser = (Scene) => {
-        if (!user) {
+        if (!user.isLoggedIn) {
             return Scene;
         } else {
             return <Navigate to={redirectLocation || 'list'}/>
@@ -19,7 +19,7 @@ const RootRouter = (props) => {
     }
 
     const renderForLoggedInUser = (Scene) => {
-        if (user) {    // пока юзер залогинен
+        if (user.isLoggedIn) {    // пока юзер залогинен
             return Scene;
         } else {      // как только разлогинится
             setRedirectLocation(location);
