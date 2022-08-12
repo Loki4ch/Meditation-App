@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Form, Formik} from "formik";
 import FormikInput from "../Components/FormikFields/FormikInput.jsx";
-
+import {useNavigate} from 'react-router-dom';
 const StyledLoginPage = styled.div`
   background-color: ${props => props.theme.partBackgroundTheme};
 `
 
 const LoginPage = (props) => {
+    const navigate = useNavigate();
+
     return (
         <StyledLoginPage>
-            <Formik onSubmit={
-                const navigate = useNavigate();
-            } validate={(formData) => {
+            <Formik  validate={(formData) => {
                 let isValid = true;
                 const errors = {};
 
