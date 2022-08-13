@@ -14,13 +14,15 @@ const StyledLoginPage = styled.div`
 const LoginPage = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
     return (
         <StyledLoginPage>
             <Formik onSubmit={(formValues) => {
                 dispatch(userLoggedIn({id: formValues.password, name: formValues.login}));
                 navigate('/list');
                 }
-            } validate={(formData) => {
+            }
+                    validate={(formData) => {
                 let isValid = true;
                 const errors = {};
 

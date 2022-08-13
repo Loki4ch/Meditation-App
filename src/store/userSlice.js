@@ -19,7 +19,7 @@ const userSlice = createSlice({
             state.id = '';
         },
     },
-})
+});
 
 export const {userLoggedIn, userLoggedOut} = userSlice.actions;
 export default userSlice.reducer;

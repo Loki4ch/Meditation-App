@@ -14,7 +14,7 @@ const RootRouter = (props) => {
         if (!user.isLoggedIn) {
             return Scene;
         } else {
-            return <Navigate to={redirectLocation || 'list'}/>
+            return <Navigate to={redirectLocation || '/list'}/>
         }
     }
 
