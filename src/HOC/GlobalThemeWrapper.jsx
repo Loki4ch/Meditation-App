@@ -18,12 +18,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 `
-
-
+// #5cdb95  #3AAFA9
 const GlobalThemeWrapper = (props) => {
     return (
         <React.Fragment>
-            <ThemeProvider theme={{accentBackgroundColor: 'green', baseBackgroundColor: 'aquamarine', partBackgroundTheme: 'white', additionalBackgroundColor: 'orange'}}>
+            <ThemeProvider theme={{accentBackgroundColor: '#008081', baseBackgroundColor: 'aquamarine', partBackgroundTheme: 'white', additionalBackgroundColor: 'orange'}}>
                 <GlobalStyle/>
                 {props.children}
             </ThemeProvider>

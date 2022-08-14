@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Logo from '../../assets/images/Logo.png';
 
 const StyledHeader = styled.div`
-  background-color: ${props => props.theme.accentBackgroundColor};;
+  background-color: ${props => props.theme.accentBackgroundColor};
   
   .header-wrapper {
     display: flex;
@@ -33,15 +33,20 @@ const StyledHeader = styled.div`
     background: #fefffc4d;
   }
 
+  li:active {
+    background: white;
+    color: #008081;
+  }
+
   li {
     margin: 0;
     list-style: none;
     color: white;
-    font-size: 20px;
+    font-size: 19px;
     cursor: pointer;
     display: block;
     padding: 14px 10px;
-    transition: all 0.3s;
+    transition: all 0.2s;
   }
 
   a {

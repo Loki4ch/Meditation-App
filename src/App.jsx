@@ -5,6 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 import RootRouter from "./Routes/RootRouter.jsx";
 import {Provider} from "react-redux";
 import {store} from "./store/initStore.js";
+import GlobalModalProvider from "./HOC/GlobalModalProvider.jsx";
 
 const App = (props) => {
     // const [someText, setSomeText] = useState('Hello');
@@ -13,7 +14,9 @@ const App = (props) => {
         <BrowserRouter>
             <Provider store={store}>
                 <GlobalThemeWrapper>
-                    <RootRouter/>
+                    <GlobalModalProvider>
+                        <RootRouter/>
+                    </GlobalModalProvider>
                 </GlobalThemeWrapper>
             </Provider>
         </BrowserRouter>
