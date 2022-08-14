@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
+import Logo from '../../assets/images/Logo.png';
 
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.accentBackgroundColor};;
@@ -14,6 +15,8 @@ const StyledHeader = styled.div`
 
   .header-logo {
     margin: 0;
+    width: 50px;
+    height: 40px;
   }
 
   ul {
@@ -52,7 +55,7 @@ const Header = () => {
         <StyledHeader className="header">
             <div className="header-wrapper">
                 <Link to="/home">
-                    <img src={'../../assets/images/Logo.png'} className="header-logo" alt={'Logo'}/>
+                    <img src={Logo} className="header-logo" alt={'Logo'}/>
                 </Link>
                 <ul>
                     <Link to="/home">
@@ -61,7 +64,7 @@ const Header = () => {
                     <Link to="/home">
                         <li>My Notes</li>
                     </Link>
-                    <Link to="/home">
+                    <Link to="/meditation-basics">
                         <li>Meditation Basics</li>
                     </Link>
                     <Link to="/home">
