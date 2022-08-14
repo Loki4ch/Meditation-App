@@ -4,6 +4,7 @@ import {Route, Routes, Outlet, Navigate, useLocation} from 'react-router-dom';
 import LoginPage from "../Scenes/LoginPage.jsx";
 import MainLayout from "../Layouts/MainLayout.jsx";
 import {useSelector} from "react-redux";
+import Home from "../Scenes/Home.jsx";
 
 const RootRouter = (props) => {
     const [redirectLocation, setRedirectLocation] = useState();
@@ -14,7 +15,7 @@ const RootRouter = (props) => {
         if (!user.isLoggedIn) {
             return Scene;
         } else {
-            return <Navigate to={redirectLocation || '/list'}/>
+            return <Navigate to={'/home'}/>
         }
     }
 
@@ -22,7 +23,7 @@ const RootRouter = (props) => {
         if (user.isLoggedIn) {    // пока юзер залогинен
             return Scene;
         } else {      // как только разлогинится
-            setRedirectLocation(location);
+            // setRedirectLocation(location);
             return <Navigate to={'/login-page'}/>
         }
     }
@@ -32,7 +33,7 @@ const RootRouter = (props) => {
             <Route path={'/login-page'} element={renderForGuestUser(<MainLayout><LoginPage/></MainLayout>)}>
                {/*<Route index element={<LoginPage/>}/>*/}
             </Route>
-            <Route path={'/'} element={renderForLoggedInUser(<MainLayout/>)}>
+            <Route path={'/home'} element={renderForLoggedInUser(<MainLayout><Home/></MainLayout>)}>
                 {/*<Route path={'list'} element={<list>sdsdfsd</list>}/>*/}
             </Route>
 
