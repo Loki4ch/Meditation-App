@@ -59,10 +59,10 @@ const Header = () => {
                         <li>Home</li>
                     </Link>
                     <Link to="/home">
-                        <li>Notes</li>
+                        <li>My Notes</li>
                     </Link>
                     <Link to="/home">
-                        <li>Achievements</li>
+                        <li>Meditation Basics</li>
                     </Link>
                     <Link to="/home">
                         <li>Settings</li>

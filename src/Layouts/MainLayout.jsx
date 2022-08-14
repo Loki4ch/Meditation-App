@@ -5,12 +5,6 @@ import {Outlet} from "react-router-dom";
 import Header from "../Components/Header/Header.jsx";
 
 const StyledMainLayout = styled.div`
-  .header {
-    width: 100%;
-    height: 50px;
-    background-color: ${props => props.theme.accentBackgroundColor};
-  }
-  
   .content {
     width: 100%;
     height: calc(100vh - 70px);
