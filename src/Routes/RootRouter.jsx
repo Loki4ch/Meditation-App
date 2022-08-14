@@ -29,11 +29,11 @@ const RootRouter = (props) => {
 
     return (
         <Routes>
-            <Route path={'/login-page'} element={renderForGuestUser(<MainLayout/>)}>
-               <Route index element={<LoginPage/>}/>
+            <Route path={'/login-page'} element={renderForGuestUser(<MainLayout><LoginPage/></MainLayout>)}>
+               {/*<Route index element={<LoginPage/>}/>*/}
             </Route>
             <Route path={'/'} element={renderForLoggedInUser(<MainLayout/>)}>
-                <Route path={'list'} element={<list>sdsdfsd</list>}/>
+                {/*<Route path={'list'} element={<list>sdsdfsd</list>}/>*/}
             </Route>
 
             <Route path={'*'} element={<Navigate to={'/login-page'}/>}/>
