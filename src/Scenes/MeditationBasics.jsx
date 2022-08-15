@@ -8,29 +8,8 @@ const StyledMeditationBasics = styled.div`
   
   .content {
     max-width: 1170px;
-    //padding: 0 15px 0 15px;
     margin: 0 auto;
-    //----------------------Scroll
-    padding: 1rem;
-    overflow-y: auto;
-    direction: ltr;
-  }
-  
-  .content::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .content::-webkit-scrollbar-track {
-    background-color: #cdeee2;
-    border-radius: 100px;
-    margin: 25px 0 25px 0;
-  }
-
-  .content::-webkit-scrollbar-thumb {
-    border-radius: 100px;
-    background-image: linear-gradient(180deg, #cce6e6 0%, #86e3ce 99%);
-    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-  }
+    height: 100%;
   
   .image-wrap {
     margin-top: 50px;

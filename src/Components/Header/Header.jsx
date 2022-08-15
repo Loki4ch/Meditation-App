@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
-import Logo from '../../assets/images/Logo.png';
+import Logo from '../../assets/images/logoImg.png';
 
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.accentBackgroundColor};
+  color: ${props => props.theme.accentBackgroundColor};
   
   .header-wrapper {
     display: flex;
@@ -15,7 +16,7 @@ const StyledHeader = styled.div`
 
   .header-logo {
     margin: 0;
-    width: 50px;
+    width: 150px;
     height: 40px;
   }
 
@@ -42,10 +43,10 @@ const StyledHeader = styled.div`
     margin: 0;
     list-style: none;
     color: white;
-    font-size: 19px;
+    font-size: 18px;
     cursor: pointer;
     display: block;
-    padding: 14px 10px;
+    padding: 13px 10px;
     transition: all 0.2s;
   }
 

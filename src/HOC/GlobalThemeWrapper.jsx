@@ -1,16 +1,16 @@
 import React from "react";
 import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
-import VogueNormal from '../assets/fonts/Vogue-Normal.ttf'
+import loraFont from '../assets/fonts/Lora-Regular.ttf'
 
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
-    font-family: Vogue Normal, sans-serif;
+    font-family: Lora Regular, serif;
   }
 
   @font-face {
-    font-family: 'Vogue Normal';
-    src: url(${VogueNormal}); format('ttf');
+    font-family: 'Lora Regular';
+    src: url(${loraFont}); format('ttf');
   }
   
   body {
@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 `
-// #5cdb95  #3AAFA9
+
 const GlobalThemeWrapper = (props) => {
     return (
         <React.Fragment>

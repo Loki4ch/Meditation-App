@@ -8,7 +8,6 @@ import {store} from "./store/initStore.js";
 import GlobalModalProvider from "./HOC/GlobalModalProvider.jsx";
 
 const App = (props) => {
-    // const [someText, setSomeText] = useState('Hello');
 
     return (
         <BrowserRouter>

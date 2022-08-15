@@ -14,9 +14,32 @@ const StyledMainLayout = styled.div`
   
   .footer {
     width: 100%;
-    height: 20px;
+    height: 21px;
     background-color: ${props => props.theme.accentBackgroundColor};
-  }  
+  }
+
+  .content {
+    //----------------------Scroll
+    padding: 1rem;
+    overflow-y: auto;
+    direction: ltr;
+  }
+
+  .content::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  .content::-webkit-scrollbar-track {
+    background-color: #cdeee2;
+    border-radius: 100px;
+    margin: 25px 0 25px 0;
+  }
+
+  .content::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-image: linear-gradient(180deg, #86e3ce 0%, ${props => props.theme.accentBackgroundColor} 99%);
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  }
 `
 
 const MainLayout = (props) => {
