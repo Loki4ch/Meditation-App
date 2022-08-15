@@ -28,7 +28,18 @@ const StyledAddMeditationBtn = styled.div`
   }
 `
 
-const AddMeditationBtn = () => {
+
+
+const AddMeditationBtn = (props) => {
+
+    const cardData = {name: 'Meditation 1', description: 'Description text'};
+
+    const addMeditation = (value, setCardsList, cardsList) => {
+        console.log('Meditation added');
+        value(false);
+        return setCardsList([...cardsList, cardData]);
+    }
+
     return (
         <StyledAddMeditationBtn>
             <ModalContext.Consumer>
@@ -36,7 +47,7 @@ const AddMeditationBtn = () => {
                     <button type={'button'} className={'add-btn'} onClick={() => value(
                         <React.Fragment>
                             <h4>Creating New Meditation</h4>
-                            <button type={'button'} className={'modal-add-btn'}>Add</button>
+                            <button type={'button'} className={'modal-add-btn'} onClick={() => {addMeditation(value, props.setCardsList, props.cardsList)}}>Add</button>
                             <button type={'button'} className={'modal-cancel-btn'} onClick={() => {value(false)}}>Cancel</button>
                         </React.Fragment>
                     )}>+</button>

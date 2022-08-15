@@ -13,7 +13,6 @@ const StyledModalWrapper = styled.div`
   align-items: center;
   justify-content: center;
   
-  
   .modal-window {
     background-color: #afeddf;
     padding: 10px 20px;
