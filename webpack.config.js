@@ -30,6 +30,19 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {loader: 'file-loader'},
+                ],
+            },
+            {
+                test: /\.(eot|otf|ttf|woff|woff2)$/,
+                loader: require.resolve("file-loader"),
+                options: {
+                    name: "static/media/[name].[hash:8].[ext]"
+                }
+            }
         ]
     }
 }
