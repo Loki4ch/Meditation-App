@@ -31,7 +31,7 @@ const RootRouter = (props) => {
 
     return (
         <Routes>
-            <Route path={'/login-page'} element={renderForGuestUser(<MainLayout><LoginPage/></MainLayout>)}>
+            <Route path={'/login-page'} element={renderForGuestUser(<LoginPage/>)}>
                {/*<Route index element={<LoginPage/>}/>*/}
             </Route>
             <Route path={'/home'} element={renderForLoggedInUser(<MainLayout><Home/></MainLayout>)}>

@@ -6,7 +6,9 @@ const StyledMeditationCard = styled.div`
   width: 700px;
   height: 200px;
   margin: 10px;
-  background: ${props => props.theme.accentBackgroundColor};
+  border-radius: 10px;
+  background: ${props => props.theme.additionalBackgroundColor};
+  box-shadow:  0 0 15px black;
 `
 
 const MeditationCard = (props) => {

@@ -19,7 +19,7 @@ const LoginPage = (props) => {
         <StyledLoginPage>
             <Formik onSubmit={(formValues) => {
                 dispatch(userLoggedIn({id: formValues.password, name: formValues.login}));
-                navigate('/list');
+                navigate('/home');
                 }
             }
                     validate={(formData) => {
