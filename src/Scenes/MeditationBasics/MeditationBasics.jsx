@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MeditationImg from '../assets/images/img3.png';
+import MeditationImg from '../../assets/images/img3.png';
 
 const StyledMeditationBasics = styled.div`
   background-color: ${props => props.theme.baseBackgroundColor};

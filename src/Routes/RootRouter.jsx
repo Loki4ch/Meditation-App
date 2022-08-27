@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import {Route, Routes, Outlet, Navigate, useLocation} from 'react-router-dom';
-import LoginPage from "../Scenes/LoginPage.jsx";
+import LoginPage from "../Scenes/LoginPage/LoginPage.jsx";
 import MainLayout from "../Layouts/MainLayout.jsx";
 import {useSelector} from "react-redux";
-import Home from "../Scenes/Home.jsx";
-import MeditationBasics from "../Scenes/MeditationBasics.jsx";
+import Home from "../Scenes/Home/Home.jsx";
+import MeditationBasics from "../Scenes/MeditationBasics/MeditationBasics.jsx";
 
 const RootRouter = (props) => {
     const [redirectLocation, setRedirectLocation] = useState();
@@ -31,14 +31,9 @@ const RootRouter = (props) => {
 
     return (
         <Routes>
-            <Route path={'/login-page'} element={renderForGuestUser(<LoginPage/>)}>
-               {/*<Route index element={<LoginPage/>}/>*/}
-            </Route>
-            <Route path={'/home'} element={renderForLoggedInUser(<MainLayout><Home/></MainLayout>)}>
-                {/*<Route path={'list'} element={<list>sdsdfsd</list>}/>*/}
-            </Route>
+            <Route path={'/login-page'} element={renderForGuestUser(<LoginPage/>)}></Route>
+            <Route path={'/home'} element={renderForLoggedInUser(<MainLayout><Home/></MainLayout>)}></Route>
             <Route path={'/meditation-basics'} element={renderForLoggedInUser(<MainLayout><MeditationBasics/></MainLayout>)}></Route>
-
             <Route path={'*'} element={<Navigate to={'/login-page'}/>}/>
         </Routes>
     );

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
+import {ThemeProvider, createGlobalStyle} from 'styled-components';
 import loraFont from '../assets/fonts/Lora-Regular.ttf'
 
 const GlobalStyle = createGlobalStyle`

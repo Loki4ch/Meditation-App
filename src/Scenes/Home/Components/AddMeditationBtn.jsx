@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
+import {ModalContext} from "../../../HOC/GlobalModalProvider.jsx";
 
 const StyledAddMeditationBtn = styled.div`
   .add-btn {

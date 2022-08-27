@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import AddMeditationBtn from "../Components/AddMeditationBtn/AddMeditationBtn.jsx";
-import MeditationCard from "../Components/MeditationCard/MeditationCard.jsx";
+import AddMeditationBtn from "./Components/AddMeditationBtn.jsx";
+import MeditationCard from "../../Components/MeditationCard/MeditationCard.jsx";
 
 const StyledHome = styled.div`
   background-color: ${props => props.theme.baseBackgroundColor};
@@ -20,7 +20,7 @@ const Home = (props) => {
                         <MeditationCard key={index} name={card.name} description={card.description}/>
                     ))
                 }
-                <AddMeditationBtn setCardsList={setCardsList} cardsList={cardsList}/>
+                <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList} />
             </div>
         </StyledHome>
     );
