@@ -11,7 +11,6 @@ const StyledHome = styled.div`
 
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
-    const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
     const deleteMeditation = (index) => {
         const newCardsList = [...cardsList];
@@ -23,6 +22,8 @@ const Home = (props) => {
     const editMeditation = (index, newName) => {
 
     }
+
+    const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
     return (
         <StyledHome>
