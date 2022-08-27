@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
 import AddMeditationBtn from "./Components/AddMeditationBtn.jsx";
 import MeditationCard from "../../Components/MeditationCard/MeditationCard.jsx";
@@ -11,13 +11,25 @@ const StyledHome = styled.div`
 
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
+    const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
+
+    const deleteMeditation = (index) => {
+        const newCardsList = [...cardsList];
+        newCardsList.splice(index, 1);
+        setCardsList(newCardsList);
+        console.log(`deleted card ${index}` )
+    }
+
+    const editMeditation = (index, newName) => {
+
+    }
 
     return (
         <StyledHome>
             <div className={'main-wrapper'}>
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
-                        <MeditationCard key={index} name={card.name} description={card.description}/>
+                        <MeditationCard key={index} name={card.name} description={card.description} deleteMeditation={goodCallback} index={index}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList} />
