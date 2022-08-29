@@ -1,3 +1,5 @@
+import {useCallback} from "react";
+
 const throttleFunction = (callback, timeout) => {
     let timeoutID = null;
 

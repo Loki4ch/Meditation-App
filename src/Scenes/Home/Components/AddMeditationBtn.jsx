@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {ModalContext} from "../../../HOC/GlobalModalProvider.jsx";
 
@@ -32,7 +32,10 @@ const StyledAddMeditationBtn = styled.div`
 
 const AddMeditationBtn = (props) => {
 
-    const cardData = {name: 'Meditation 1', description: 'Description text'};
+    const {meditationName, setMeditationName} = useState('');
+    const {meditationDescription, setMeditationDescription} = useState('');
+
+    const cardData = {name: meditationName, description: meditationDescription};
 
     const addMeditation = (value, setCardsList, cardsList) => {
         console.log('Meditation added');
@@ -47,6 +50,10 @@ const AddMeditationBtn = (props) => {
                     <button type={'button'} className={'add-btn'} onClick={() => value(
                         <React.Fragment>
                             <h4>Creating New Meditation</h4>
+                            <input type={'text'} placeholder={'Enter meditation name'} onChange={(e) => {setMeditationName(e.target.value)}}
+                                   value={meditationName}/>
+                            <input type={'text'} placeholder={'Enter meditation description'} onChange={(e) => {setMeditationDescription(e.target.value)}}
+                                   value={meditationDescription}/>
                             <button type={'button'} className={'modal-add-btn'} onClick={() => {addMeditation(value, props.setCardsList, props.cardsList)}}>Add</button>
                             <button type={'button'} className={'modal-cancel-btn'} onClick={() => {value(false)}}>Cancel</button>
                         </React.Fragment>
