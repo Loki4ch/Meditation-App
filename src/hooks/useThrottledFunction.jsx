@@ -13,4 +13,5 @@ const throttleFunction = (callback, timeout) => {
     }, [])
 }
 
+
 export default throttleFunction;
