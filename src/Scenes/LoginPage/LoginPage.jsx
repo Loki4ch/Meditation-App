@@ -41,8 +41,8 @@ const LoginPage = (props) => {
                 if (!isValid) return errors;
             }}>
                 <Form>
-                    <FormikInput name={'login'} placeholder={'Enter login'} type={'email'}/>
-                    <FormikInput name={'password'} placeholder={'Enter password'} type={'password'}/>
+                    <FormikInput name={'formValues.login'} placeholder={'Enter login'} type={'email'}/>
+                    <FormikInput name={'formValues.password'} placeholder={'Enter password'} type={'password'}/>
                     <button type={'submit'}>Login</button>
                 </Form>
             </Formik>

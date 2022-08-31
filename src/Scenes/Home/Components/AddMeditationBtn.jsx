@@ -50,7 +50,7 @@ const AddMeditationBtn = (props) => {
                     <button type={'button'} className={'add-btn'} onClick={() => value(
                         <React.Fragment>
                             <h4>Creating New Meditation</h4>
-                            <input type={'text'} placeholder={'Enter meditation name'} onChange={(e) => {setMeditationName(e.target.value)}}
+                            <input type={'text'} placeholder={'Enter meditation name'} onChange={(value) => {setMeditationName(value)}}
                                    value={meditationName}/>
                             <input type={'text'} placeholder={'Enter meditation description'} onChange={(e) => {setMeditationDescription(e.target.value)}}
                                    value={meditationDescription}/>
