@@ -15,9 +15,14 @@ const LoginPage = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const initialFormValues = {
+        login: '',
+        password: ''
+    }
+
     return (
         <StyledLoginPage>
-            <Formik initialValues={''} onSubmit={(formValues) => {
+            <Formik initialValues={initialFormValues} onSubmit={(formValues) => {
                 console.log('dispatch');
                 dispatch(userLoggedIn({id: formValues.password, name: formValues.login}));
                 navigate('/home');

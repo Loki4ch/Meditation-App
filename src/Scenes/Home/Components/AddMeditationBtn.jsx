@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {ModalContext} from "../../../HOC/GlobalModalProvider.jsx";
+import {Form, Formik} from "formik";
+import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 
 const StyledAddMeditationBtn = styled.div`
   .add-btn {
@@ -43,16 +45,31 @@ const AddMeditationBtn = (props) => {
         return setCardsList([...cardsList, cardData]);
     }
 
+    const handleInputChange = (fieldName) => (e) => {
+
+    }
+
+    const initialFormValues = {
+        name: '',
+        description: ''
+    }
+
     return (
         <StyledAddMeditationBtn>
             <ModalContext.Consumer>
+                <Formik initialValues={initialFormValues} onSubmit={(e) => {console.log('hello')}}>
+                    <Form>
+                        <FormikInput name={'name'} placeholder={'Enter meditation name'} type={'text'}/>
+                    </Form>
+                </Formik>
+
                 {value => (
                     <button type={'button'} className={'add-btn'} onClick={() => value(
                         <React.Fragment>
                             <h4>Creating New Meditation</h4>
-                            <input type={'text'} placeholder={'Enter meditation name'} onChange={(value) => {setMeditationName(value)}}
+                            <input type={'text'} placeholder={'Enter meditation name'} onChange={handleInputChange('name')}
                                    value={meditationName}/>
-                            <input type={'text'} placeholder={'Enter meditation description'} onChange={(e) => {setMeditationDescription(e.target.value)}}
+                            <input type={'text'} placeholder={'Enter meditation description'} onChange={handleInputChange('description')}
                                    value={meditationDescription}/>
                             <button type={'button'} className={'modal-add-btn'} onClick={() => {addMeditation(value, props.setCardsList, props.cardsList)}}>Add</button>
                             <button type={'button'} className={'modal-cancel-btn'} onClick={() => {value(false)}}>Cancel</button>
