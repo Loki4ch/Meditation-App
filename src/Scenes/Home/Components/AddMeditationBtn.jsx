@@ -39,14 +39,12 @@ const AddMeditationBtn = (props) => {
 
     const cardData = {name: meditationName, description: meditationDescription};
 
-    const addMeditation = (value, setCardsList, cardsList) => {
+    const addMeditation = (value, setCardsList, cardsList, formValues) => {
         console.log('Meditation added');
         value(false);
+        setMeditationName();
+        setMeditationDescription();
         return setCardsList([...cardsList, cardData]);
-    }
-
-    const handleInputChange = (fieldName) => (e) => {
-
     }
 
     const initialFormValues = {
@@ -57,22 +55,18 @@ const AddMeditationBtn = (props) => {
     return (
         <StyledAddMeditationBtn>
             <ModalContext.Consumer>
-                {/*<Formik initialValues={initialFormValues} onSubmit={(e) => {console.log('hello')}}>*/}
-                {/*    <Form>*/}
-                {/*        <FormikInput name={'name'} placeholder={'Enter meditation name'} type={'text'}/>*/}
-                {/*    </Form>*/}
-                {/*</Formik>*/}
-
                 {value => (
                     <button type={'button'} className={'add-btn'} onClick={() => value(
                         <React.Fragment>
                             <h4>Creating New Meditation</h4>
-                            <input type={'text'} placeholder={'Enter meditation name'} onChange={handleInputChange('name')}
-                                   value={meditationName}/>
-                            <input type={'text'} placeholder={'Enter meditation description'} onChange={handleInputChange('description')}
-                                   value={meditationDescription}/>
-                            <button type={'button'} className={'modal-add-btn'} onClick={() => {addMeditation(value, props.setCardsList, props.cardsList)}}>Add</button>
-                            <button type={'button'} className={'modal-cancel-btn'} onClick={() => {value(false)}}>Cancel</button>
+                            <Formik initialValues={initialFormValues} onSubmit={(formValues) => {console.log('form values', formValues)}}>
+                                <Form>
+                                    <FormikInput name={'name'} placeholder={'Enter meditation name'} type={'text'} label={'Name'}/>
+                                    <FormikInput name={'description'} placeholder={'Enter meditation name'} type={'text'} label={'Description'}/>
+                                    <button type={'button'} className={'modal-add-btn'} onClick={()  => {addMeditation(value, props.setCardsList, props.cardsList)}}>Add</button>
+                                    <button type={'button'} className={'modal-cancel-btn'} onClick={() => {value(false)}}>Cancel</button>
+                                </Form>
+                            </Formik>
                         </React.Fragment>
                     )}>+</button>
                 )}
@@ -80,5 +74,11 @@ const AddMeditationBtn = (props) => {
         </StyledAddMeditationBtn>
     );
 };
+
+
+
+
+
+
 
 export default AddMeditationBtn;
