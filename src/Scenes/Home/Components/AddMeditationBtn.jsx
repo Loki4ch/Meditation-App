@@ -20,13 +20,19 @@ const StyledAddMeditationBtn = styled.div`
   }
   
   .add-btn:hover {
-    background: #afeddf;
-    color: ${props => props.theme.accentBackgroundColor};
     box-shadow: 1px 3px 10px black;
   }
 
   .add-btn:active {
-    background: #fefffc4d;
+    background: ${props => props.theme.baseBackgroundColor};
+  }
+
+  .modal-title-wrapper {
+    align-items: center;
+  }
+  
+  .modal-title {
+    margin-top: 10px;
   }
 `
 
@@ -34,23 +40,22 @@ const StyledAddMeditationBtn = styled.div`
 
 const AddMeditationBtn = (props) => {
 
-    const {meditationName, setMeditationName} = useState('');
-    const {meditationDescription, setMeditationDescription} = useState('');
-
-    const cardData = {name: meditationName, description: meditationDescription};
-
-    const addMeditation = (value, setCardsList, cardsList, formValues) => {
-        console.log('Meditation added');
-        value(false);
-        setMeditationName();
-        setMeditationDescription();
-        return setCardsList([...cardsList, cardData]);
-    }
+    const cardData = {
+        name: '',
+        description: '',
+    };
 
     const initialFormValues = {
         name: '',
-        description: ''
-    }
+        description: '',
+    };
+
+    const addMeditation = (value, setCardsList, cardsList) => {
+        console.log('Meditation added');
+        value(false);
+        return setCardsList([...cardsList, cardData]);
+    };
+
 
     return (
         <StyledAddMeditationBtn>
@@ -58,12 +63,30 @@ const AddMeditationBtn = (props) => {
                 {value => (
                     <button type={'button'} className={'add-btn'} onClick={() => value(
                         <React.Fragment>
-                            <h4>Creating New Meditation</h4>
-                            <Formik initialValues={initialFormValues} onSubmit={(formValues) => {console.log('form values', formValues)}}>
+                            <div className={'modal-title-wrapper'}>
+                                <h3 className={'modal-title'}>Creating New Meditation</h3>
+                            </div>
+                            <Formik initialValues={initialFormValues} validate={(formValues) => {
+                                let isValid = true;
+                                const errors = {};
+                                if (!formValues.name) {
+                                    isValid = false;
+                                    errors.login = 'Name is mandatory';
+                                } else if (formValues.name.length > 43) {
+                                    isValid = false;
+                                    errors.login = 'Name is too long';
+                                }
+                                if (!isValid) return errors;
+                            }
+                            } onSubmit={(formValues) => {
+                                cardData.name = formValues.name;
+                                cardData.description = formValues.description;
+                                addMeditation(value, props.setCardsList, props.cardsList);
+                            }}>
                                 <Form>
                                     <FormikInput name={'name'} placeholder={'Enter meditation name'} type={'text'} label={'Name'}/>
                                     <FormikInput name={'description'} placeholder={'Enter meditation name'} type={'text'} label={'Description'}/>
-                                    <button type={'button'} className={'modal-add-btn'} onClick={()  => {addMeditation(value, props.setCardsList, props.cardsList)}}>Add</button>
+                                    <button type={'submit'} className={'modal-add-btn'}>Add</button>
                                     <button type={'button'} className={'modal-cancel-btn'} onClick={() => {value(false)}}>Cancel</button>
                                 </Form>
                             </Formik>
