@@ -25,6 +25,8 @@ const Home = (props) => {
 
     const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
+    console.log('home rendered')
+
     return (
         <StyledHome>
             <div className={'main-wrapper'}>

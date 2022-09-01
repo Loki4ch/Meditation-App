@@ -22,6 +22,7 @@ const RootRouter = (props) => {
 
     const renderForLoggedInUser = (Scene) => {
         if (user.isLoggedIn) {    // пока юзер залогинен
+            console.log('now logged in true');
             return Scene;
         } else {      // как только разлогинится
             // setRedirectLocation(location);

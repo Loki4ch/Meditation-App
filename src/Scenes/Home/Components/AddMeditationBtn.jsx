@@ -57,11 +57,11 @@ const AddMeditationBtn = (props) => {
     return (
         <StyledAddMeditationBtn>
             <ModalContext.Consumer>
-                <Formik initialValues={initialFormValues} onSubmit={(e) => {console.log('hello')}}>
-                    <Form>
-                        <FormikInput name={'name'} placeholder={'Enter meditation name'} type={'text'}/>
-                    </Form>
-                </Formik>
+                {/*<Formik initialValues={initialFormValues} onSubmit={(e) => {console.log('hello')}}>*/}
+                {/*    <Form>*/}
+                {/*        <FormikInput name={'name'} placeholder={'Enter meditation name'} type={'text'}/>*/}
+                {/*    </Form>*/}
+                {/*</Formik>*/}
 
                 {value => (
                     <button type={'button'} className={'add-btn'} onClick={() => value(
