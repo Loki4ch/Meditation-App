@@ -7,11 +7,12 @@ const StyledFormikInput = styled.div`
   
 `
 const FormikInput = (props) => {
-    const {field, meta, helpers} = useField(props.name);
+    const [field, meta, helpers] = useField(props.name);
 
     return (
         <StyledFormikInput>
-            <input type={'text'} {...field} {...props}/>
+            <label>{props.label}</label>
+            <input {...field} {...props}/>        {/* ...field  =  value={} onChange={} onBlur={}  ...props = type={} */}
         </StyledFormikInput>
     );
 }

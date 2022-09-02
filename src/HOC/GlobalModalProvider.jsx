@@ -14,10 +14,14 @@ const StyledModalWrapper = styled.div`
   justify-content: center;
   
   .modal-window {
-    background-color: #afeddf;
-    padding: 10px 20px;
-    border-radius: 10%;
-    box-shadow: 5px 5px 10px black;
+    width: 500px;
+    min-height: 200px;
+    padding: 5px 10px 10px 10px;
+    border-radius: 10px;
+    border: 2px solid ${props => props.theme.accentBackgroundColor};
+    background: ${props => props.theme.additionalBackgroundColor};
+    box-shadow:  0 0 7px black;
+    align-items: center;
   }
 `
 

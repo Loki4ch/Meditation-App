@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Outlet} from "react-router-dom";
-import Header from "../Components/Header/Header.jsx";
+import Header from "./Components/Header.jsx";
+import Footer from "./Components/Footer.jsx";
 
 const StyledMainLayout = styled.div`
   .content {
@@ -10,12 +11,6 @@ const StyledMainLayout = styled.div`
     height: calc(100vh - 70px);
     overflow: auto;
     background-color: ${props => props.theme.baseBackgroundColor};
-  }
-  
-  .footer {
-    width: 100%;
-    height: 21px;
-    background-color: ${props => props.theme.accentBackgroundColor};
   }
 
   .content {
@@ -50,7 +45,7 @@ const MainLayout = (props) => {
                 {props.children}
                 <Outlet/>
             </main>
-            <footer className={"footer"}></footer>
+            <Footer/>
         </StyledMainLayout>
     );
 }
