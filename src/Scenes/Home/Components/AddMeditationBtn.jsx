@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {ModalContext} from "../../../HOC/GlobalModalProvider.jsx";
 
-import ModalContent from "./ModalContent.jsx";
+import AddModalContent from "./AddModalContent.jsx";
 
 const StyledAddMeditationBtn = styled.div`
   .add-btn {
@@ -36,7 +36,7 @@ const AddMeditationBtn = (props) => {
             <ModalContext.Consumer>
                     {value => (
                         <button type={'button'} className={'add-btn'} onClick={() => value(
-                            <ModalContent modalValue={value} cardsList={props.cardsList} setCardsList={props.setCardsList}/>)}>+</button>
+                            <AddModalContent modalValue={value} cardsList={props.cardsList} setCardsList={props.setCardsList}/>)}>+</button>
                     )}
             </ModalContext.Consumer>
         </StyledAddMeditationBtn>

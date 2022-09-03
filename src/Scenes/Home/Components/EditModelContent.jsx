@@ -29,7 +29,7 @@ const StyledModalContent = styled.div`
   }
 `
 
-const ModalContent = (props) => {
+const EditModalContent = (props) => {
     const initialFormValues = {
         name: '',
         description: '',
@@ -104,6 +104,4 @@ const ModalContent = (props) => {
     )
 }
 
-export default ModalContent;
-
-
+export default AddModalContent;

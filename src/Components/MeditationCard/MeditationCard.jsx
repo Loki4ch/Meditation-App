@@ -71,6 +71,7 @@ const MeditationCard = (props) => {
                 <h2 className={'card-header'}>{props.name}</h2>
                 <div className={'description-wrapper'}>{props.description}</div>
             </div>
+            <button type={'button'} className={'edit-btn'} onClick={() => {props.deleteMeditation(props.index)}}>✖</button>
             <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}>✖</button>
             <div className={'daytime-info-text'}>{SetMeditationDaytime(props.daytime)}</div>
         </StyledMeditationCard>
