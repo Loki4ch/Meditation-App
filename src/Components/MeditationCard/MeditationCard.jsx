@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
+import Edit from '../../assets/icons/edit.svg'
+import Cross from '../../assets/icons/cross.svg'
+import EditModalContent from "../../Scenes/Home/Components/EditModelContent.jsx";
+import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
 
 const StyledMeditationCard = styled.div`
   max-width: 700px;
@@ -14,25 +18,35 @@ const StyledMeditationCard = styled.div`
   justify-content: space-between;
   position: relative;
   
-  .delete-btn {
-    width: 30px;
-    height: 30px;
+  .btn-wrapper {
+    
+  }
+  
+  .delete-btn, .edit-btn{
+    width: 35px;
+    height: 35px;
     margin-top: 10px;
     margin-right: 10px;
     border-radius: 50%;
     border: none;
     color: ${props => props.theme.baseBackgroundColor};
     background-color: ${props => props.theme.accentBackgroundColor};
-    font-size: 15px;
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  .delete-btn:hover {
+  .delete-btn:hover,.edit-btn:hover {
     box-shadow: 1px 3px 10px black;
   }
 
-  .delete-btn:active {
+  .delete-btn:active, .edit-btn:active {
     background: ${props => props.theme.baseBackgroundColor};
+  }
+
+  .edit-btn {
+    
   }
   
   .card-wrapper {
@@ -71,8 +85,16 @@ const MeditationCard = (props) => {
                 <h2 className={'card-header'}>{props.name}</h2>
                 <div className={'description-wrapper'}>{props.description}</div>
             </div>
-            <button type={'button'} className={'edit-btn'} onClick={() => {props.deleteMeditation(props.index)}}>✖</button>
-            <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}>✖</button>
+            <div className={'btn-wrapper'}>
+                <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}><Cross/></button>
+                <ModalContext.Consumer>
+                    {value => (
+                        <button type={'button'} className={'edit-btn'} onClick={() => value(
+                            <EditModalContent modalValue={value} cardsList={props.cardsList} setCardsList={props.setCardsList}/>
+                        )}><Edit/></button>
+                    )}
+                </ModalContext.Consumer>
+            </div>
             <div className={'daytime-info-text'}>{SetMeditationDaytime(props.daytime)}</div>
         </StyledMeditationCard>
     )

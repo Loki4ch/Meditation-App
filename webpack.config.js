@@ -44,6 +44,11 @@ module.exports = {
                 options: {
                     name: "static/media/[name].[hash:8].[ext]"
                 }
+            },
+            {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: ['@svgr/webpack'],
             }
         ]
     }

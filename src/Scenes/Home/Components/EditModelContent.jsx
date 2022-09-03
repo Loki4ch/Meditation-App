@@ -51,7 +51,7 @@ const EditModalContent = (props) => {
         <StyledModalContent>
             <React.Fragment>
                 <div className={'modal-title-wrapper'}>
-                    <h2 className={'modal-title'}>Creating New Meditation</h2>
+                    <h2 className={'modal-title'}>Editing Meditation</h2>
                 </div>
                 <Formik initialValues={initialFormValues} validate={(formValues) => {
                     let isValid = true;
@@ -104,4 +104,4 @@ const EditModalContent = (props) => {
     )
 }
 
-export default AddModalContent;
+export default EditModalContent;
