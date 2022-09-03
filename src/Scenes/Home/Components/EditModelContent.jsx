@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
@@ -48,10 +48,6 @@ const EditModalContent = (props) => {
         return setCardsList([...cardsList, cardData]);
     };
 
-    const checkDaytime = (daytime) => {
-
-    }
-
     return (
         <StyledModalContent>
             <React.Fragment>
@@ -85,22 +81,23 @@ const EditModalContent = (props) => {
                                 <h4 className={'radio-group-title'} id={"radio-group"}>Choose meditation daytime</h4>
                                 <div role={"group"} aria-labelledby={"radio-group"} className={'radio-wrapper'}>
                                     <label>
-                                        <Field checked={() => initialFormValues.daytime === '1' ? 'checked' : ''} type={"radio"} name={"picked"} value={'1'}/>
+                                        <Field checked={() => !values.picked && initialFormValues.daytime === '1' ? 'checked' : false} type={"radio"} name={"picked"} value={'1'}/>
                                         Morning
                                     </label>
                                     <label>
-                                        <Field checked={() => initialFormValues.daytime === '2' ? 'checked' : ''} type={"radio"} name={"picked"} value={'2'}/>
+                                        <Field checked={() => !values.picked && initialFormValues.daytime === '1' ? 'checked' : false} type={"radio"} name={"picked"} value={'2'}/>
                                         Afternoon
                                     </label>
                                     <label>
-                                        <Field checked={() => initialFormValues.daytime === '3' ? 'checked' : ''} type={"radio"} name={"picked"} value={'3'}/>
+                                        <Field checked={() => !values.picked && initialFormValues.daytime === '1' ? 'checked' : false} type={"radio"} name={"picked"} value={'3'}/>
                                         Evening
                                     </label>
                                 </div>
+                                <div>picked {values.picked}</div>
                                 <button type={'submit'} className={'modal-add-btn'}>Add</button>
                                 <button type={'button'} className={'modal-cancel-btn'} onClick={() => {props.modalValue(false)}}>Cancel</button>
                             </div>
-                            {!!(cardData.daytime = values.picked || '1')}
+                            {!!(cardData.daytime = values.picked || initialFormValues.daytime)}
                         </Form>
                     )}
                 </Formik>
