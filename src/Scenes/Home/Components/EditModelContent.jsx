@@ -31,8 +31,9 @@ const StyledModalContent = styled.div`
 
 const EditModalContent = (props) => {
     const initialFormValues = {
-        name: '',
-        description: '',
+        name: `${props.name}`,
+        description: `${props.description}`,
+        daytime: `${props.daytime}`,
     };
 
     const cardData = {
@@ -46,6 +47,10 @@ const EditModalContent = (props) => {
         value(false);
         return setCardsList([...cardsList, cardData]);
     };
+
+    const checkDaytime = (daytime) => {
+
+    }
 
     return (
         <StyledModalContent>
@@ -80,15 +85,15 @@ const EditModalContent = (props) => {
                                 <h4 className={'radio-group-title'} id={"radio-group"}>Choose meditation daytime</h4>
                                 <div role={"group"} aria-labelledby={"radio-group"} className={'radio-wrapper'}>
                                     <label>
-                                        <Field checked={'checked'} type={"radio"} name={"picked"} value={'1'}/>
+                                        <Field checked={() => initialFormValues.daytime === '1' ? 'checked' : ''} type={"radio"} name={"picked"} value={'1'}/>
                                         Morning
                                     </label>
                                     <label>
-                                        <Field type={"radio"} name={"picked"} value={'2'}/>
+                                        <Field checked={() => initialFormValues.daytime === '2' ? 'checked' : ''} type={"radio"} name={"picked"} value={'2'}/>
                                         Afternoon
                                     </label>
                                     <label>
-                                        <Field type={"radio"} name={"picked"} value={'3'}/>
+                                        <Field checked={() => initialFormValues.daytime === '3' ? 'checked' : ''} type={"radio"} name={"picked"} value={'3'}/>
                                         Evening
                                     </label>
                                 </div>

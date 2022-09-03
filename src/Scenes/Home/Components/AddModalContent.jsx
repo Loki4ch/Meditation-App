@@ -70,7 +70,7 @@ const AddModalContent = (props) => {
                     cardData.description = formValues.description;
                     addMeditation(props.modalValue, props.setCardsList, props.cardsList);
                 }}>
-                    {values => (
+                    {({values}) => (
                         <Form>
                             <div className={'form'}>
                                 <div className={'input-fields-wrapper'}>

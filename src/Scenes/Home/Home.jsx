@@ -32,7 +32,7 @@ const Home = (props) => {
             <div className={'main-wrapper'}>
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
-                        <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} index={index}/>
+                        <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList} index={index}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>
