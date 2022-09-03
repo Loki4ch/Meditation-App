@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {ModalContext} from "../../../HOC/GlobalModalProvider.jsx";
-import {Form, Formik, Field} from "formik";
-import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import ModalContent from "./ModalContent.jsx";
 
 const StyledAddMeditationBtn = styled.div`
@@ -27,52 +25,20 @@ const StyledAddMeditationBtn = styled.div`
   .add-btn:active {
     background: ${props => props.theme.baseBackgroundColor};
   }
-
-  .modal-title-wrapper {
-    align-items: center;
-  }
-  
-  .modal-title {
-    margin-top: 10px;
-  }
-  
-  .form {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .radio-wrapper
 `
 
 const AddMeditationBtn = (props) => {
 
-    const cardData = {
-        name: '',
-        description: '',
-    };
-
-    // const addMeditation = (value, setCardsList, cardsList) => {
-    //     console.log('Meditation added');
-    //     value(false);
-    //     return setCardsList([...cardsList, cardData]);
-    // };
-
-
     return (
         <StyledAddMeditationBtn>
             <ModalContext.Consumer>
-                {value => (
-                    <button type={'button'} className={'add-btn'} onClick={() => value(<ModalContent modalValue={value}/>)}>+</button>
-                )}
+                    {value => (
+                        <button type={'button'} className={'add-btn'} onClick={() => value(
+                            <ModalContent modalValue={value} cardsList={props.cardsList} setCardsList={props.setCardsList}/>)}>+</button>
+                    )}
             </ModalContext.Consumer>
         </StyledAddMeditationBtn>
     );
 };
-
-
-
-
-
-
 
 export default AddMeditationBtn;

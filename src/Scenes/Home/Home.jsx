@@ -35,7 +35,7 @@ const Home = (props) => {
                         <MeditationCard key={index} name={card.name} description={card.description} deleteMeditation={goodCallback} index={index}/>
                     ))
                 }
-                <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList} />
+                <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>
             </div>
         </StyledHome>
     );
