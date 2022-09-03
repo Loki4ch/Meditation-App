@@ -29,7 +29,6 @@ const StyledModalContent = styled.div`
   }
 `
 
-
 const EditModalContent = (props) => {
     const initialFormValues = {
         name: '',
