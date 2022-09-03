@@ -12,6 +12,7 @@ const StyledMeditationCard = styled.div`
   box-shadow:  0 0 7px black;
   display: flex;
   justify-content: space-between;
+  position: relative;
   
   .delete-btn {
     width: 30px;
@@ -45,11 +46,23 @@ const StyledMeditationCard = styled.div`
   
   .description-wrapper {
     max-width: 650px;
-    margin: 0 20px 20px 20px;
+    margin: 0 20px 60px 20px;
     overflow: auto;
   }
   
+  .daytime-info-text {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
 `
+
+const SetMeditationDaytime = (daytimeIndex) => {
+    if (daytimeIndex === '1') return 'Morning meditation';
+    else if (daytimeIndex === '2') return 'Afternoon meditation';
+    else if (daytimeIndex === '3') return 'Evening meditation';
+    else return '';
+}
 
 const MeditationCard = (props) => {
     return (
@@ -59,6 +72,7 @@ const MeditationCard = (props) => {
                 <div className={'description-wrapper'}>{props.description}</div>
             </div>
             <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}>✖</button>
+            <div className={'daytime-info-text'}>{SetMeditationDaytime(props.daytime)}</div>
         </StyledMeditationCard>
     )
 }
