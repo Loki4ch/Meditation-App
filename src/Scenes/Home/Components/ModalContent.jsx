@@ -75,6 +75,7 @@ const ModalContent = (props) => {
     )
 }
 
+
 export default ModalContent;
 
 
