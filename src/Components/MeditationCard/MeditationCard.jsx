@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import styled from 'styled-components'
-import Edit from '../../assets/icons/edit.svg'
-import Cross from '../../assets/icons/cross.svg'
+import styled from 'styled-components';
+import Edit from '../../assets/icons/edit.svg';
+import Cross from '../../assets/icons/cross.svg';
+import Start from '../../assets/icons/start.svg';
 import EditModalContent from "../../Scenes/Home/Components/EditModelContent.jsx";
 import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
 
 const StyledMeditationCard = styled.div`
   max-width: 700px;
   min-height: 200px;
-  margin: 10px;
+  margin: 10px 10px 20px 10px;
   border-radius: 10px;
   border: 2px solid ${props => props.theme.accentBackgroundColor};
   background: ${props => props.theme.additionalBackgroundColor};
@@ -19,10 +20,10 @@ const StyledMeditationCard = styled.div`
   position: relative;
   
   .btn-wrapper {
-    
+    margin-bottom: 40px;
   }
   
-  .delete-btn, .edit-btn{
+  .delete-btn, .edit-btn, .start-btn{
     width: 35px;
     height: 35px;
     margin-top: 10px;
@@ -37,16 +38,22 @@ const StyledMeditationCard = styled.div`
     align-items: center;
   }
   
-  .delete-btn:hover,.edit-btn:hover {
+  .delete-btn:hover,.edit-btn:hover, .start-btn:hover {
     box-shadow: 1px 3px 10px black;
   }
 
-  .delete-btn:active, .edit-btn:active {
+  .delete-btn:active, .edit-btn:active, .start-btn:active {
     background: ${props => props.theme.baseBackgroundColor};
   }
 
   .edit-btn {
     
+  }
+  
+  .start-btn {
+    height: 80px;
+    border-radius: 25px;
+    background-color: ${props => props.theme.startBtnColor};
   }
   
   .card-wrapper {
@@ -67,7 +74,7 @@ const StyledMeditationCard = styled.div`
   .daytime-info-text {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
   }
 `
 
@@ -94,6 +101,7 @@ const MeditationCard = (props) => {
                         )}><Edit/></button>
                     )}
                 </ModalContext.Consumer>
+                <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>
             </div>
             <div className={'daytime-info-text'}>{SetMeditationDaytime(props.daytime)}</div>
         </StyledMeditationCard>

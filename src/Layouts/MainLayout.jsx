@@ -10,7 +10,8 @@ const StyledMainLayout = styled.div`
     width: 100%;
     height: calc(100vh - 70px);
     overflow: auto;
-    background-color: ${props => props.theme.baseBackgroundColor};
+    // background-color: ${props => props.theme.baseBackgroundColor};
+    background:linear-gradient(135deg, #42e695 0%,#3bb2b8 100%);
   }
 
   .content {

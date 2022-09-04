@@ -42,7 +42,7 @@ const StyledHeader = styled.div`
   li {
     margin: 0;
     list-style: none;
-    color: white;
+    color: rgb(205, 238, 226);
     font-size: 18px;
     cursor: pointer;
     display: block;

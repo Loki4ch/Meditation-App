@@ -4,7 +4,6 @@ import AddMeditationBtn from "./Components/AddMeditationBtn.jsx";
 import MeditationCard from "../../Components/MeditationCard/MeditationCard.jsx";
 
 const StyledHome = styled.div`
-  background-color: ${props => props.theme.baseBackgroundColor};
   position: relative;
 `
 
