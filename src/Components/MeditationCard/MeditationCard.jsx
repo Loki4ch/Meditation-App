@@ -13,7 +13,8 @@ const StyledMeditationCard = styled.div`
   margin: 10px 10px 20px 10px;
   border-radius: 10px;
   border: 2px solid ${props => props.theme.accentBackgroundColor};
-  background: ${props => props.theme.additionalBackgroundColor};
+  // background: ${props => props.theme.additionalBackgroundColor};
+  background:linear-gradient(135deg, #5b247a 0%,#1bcedf 100%);
   box-shadow:  0 0 7px black;
   display: flex;
   justify-content: space-between;
