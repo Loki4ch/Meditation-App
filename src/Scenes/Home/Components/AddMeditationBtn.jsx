@@ -30,7 +30,6 @@ const StyledAddMeditationBtn = styled.div`
 
 const AddMeditationBtn = (props) => {
 
-
     return (
         <StyledAddMeditationBtn>
             <ModalContext.Consumer>
