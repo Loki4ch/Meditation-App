@@ -35,9 +35,6 @@ const Home = (props) => {
     return (
         <StyledHome>
             <div className={'main-wrapper'}>
-                {!cardsList.length &&
-                    <p className={'alert-text'}>No meditations yet ;(</p>
-                }
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
                         <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList} index={index}/>

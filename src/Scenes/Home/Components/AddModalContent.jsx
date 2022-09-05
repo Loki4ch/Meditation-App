@@ -4,7 +4,7 @@ import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
 
-const StyledModalContent = styled.div`
+const StyledAddModalContent = styled.div`
   .modal-title-wrapper {
     text-align: center;
   }
@@ -77,7 +77,7 @@ const StyledModalContent = styled.div`
   }
 
   .modal-add-btn:hover,.modal-cancel-btn:hover {
-    box-shadow: 1px 3px 10px black;
+    box-shadow: 0 0 10px white;
   }
 
   .modal-add-btn:active, .modal-cancel-btn:active {
@@ -108,7 +108,7 @@ const AddModalContent = (props) => {
     };
 
     return (
-        <StyledModalContent>
+        <StyledAddModalContent>
             <React.Fragment>
                 <div className={'modal-title-wrapper'}>
                     <p className={'modal-title'}>Creating New Meditation</p>
@@ -162,7 +162,7 @@ const AddModalContent = (props) => {
                     )}
                 </Formik>
             </React.Fragment>
-        </StyledModalContent>
+        </StyledAddModalContent>
     )
 }
 

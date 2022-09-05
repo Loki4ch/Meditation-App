@@ -6,6 +6,9 @@ import Logo from '../../assets/images/logoImg.png';
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.accentBackgroundColor};
   color: ${props => props.theme.accentBackgroundColor};
+  box-shadow: 0 0 10px black;
+  position: relative;
+  z-index: 3000;
   
   .header-wrapper {
     display: flex;
@@ -57,7 +60,7 @@ const StyledHeader = styled.div`
 
 const Header = () => {
     return (
-        <StyledHeader className="header">
+        <StyledHeader>
             <div className="header-wrapper">
                 <Link to="/home">
                     <img src={Logo} className="header-logo" alt={'Logo'}/>

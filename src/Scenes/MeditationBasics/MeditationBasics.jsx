@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import MeditationImg from '../../assets/images/img3.png';
 
 const StyledMeditationBasics = styled.div`
-  background-color: ${props => props.theme.baseBackgroundColor};
   position: relative;
   
   .content {
+    background: transparent;
     max-width: 1170px;
     margin: 0 auto;
     height: 100%;
-  
+}
   .image-wrap {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -22,15 +22,21 @@ const StyledMeditationBasics = styled.div`
     border-radius: 100px;
     width: 568px;
     height: 348px;
+    box-shadow: 0 0 10px white;
   }
   
   .headers-wrap {
+    padding: 15px 10px 15px 10px;
     text-align: center;
+    //background:linear-gradient(135deg, #348575 0%,#57ca85 100%);
+    background:linear-gradient(135deg, #2b7571 0%,#49af7e 100%);
+    border-radius: 35px;
+    box-shadow: 0 0 10px black;
   }
   
-  .text-wrap {
-    text-align: start;
+  .text-wrap {  
     margin: 0 15px 0 15px;
+    text-align: start;
   }
 `
 

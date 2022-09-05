@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {Outlet} from "react-router-dom";
 import Header from "./Components/Header.jsx";
 import Footer from "./Components/Footer.jsx";
+import sakuraImg from '../assets/images/sakura-30.png'
 
 const StyledMainLayout = styled.div`
   .content {
@@ -11,6 +12,8 @@ const StyledMainLayout = styled.div`
     height: calc(100vh - 70px);
     overflow: auto;
     background-color: ${props => props.theme.baseBackgroundColor};
+    background-image: URL(${sakuraImg});
+    background-repeat: no-repeat;
   }
 
   .content {

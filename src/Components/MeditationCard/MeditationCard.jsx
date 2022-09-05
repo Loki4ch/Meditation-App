@@ -53,7 +53,7 @@ const StyledMeditationCard = styled.div`
   }
   
   .delete-btn:hover,.edit-btn:hover, .start-btn:hover {
-    box-shadow: 1px 3px 10px black;
+    box-shadow: 0 0 10px white;
   }
 
   .delete-btn:active, .edit-btn:active, .start-btn:active {

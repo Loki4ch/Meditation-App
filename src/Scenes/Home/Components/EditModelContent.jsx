@@ -4,7 +4,7 @@ import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
 
-const StyledModalContent = styled.div`
+const StyledEditModalContent = styled.div`
   .modal-title-wrapper {
     text-align: center;
   }
@@ -77,7 +77,7 @@ const StyledModalContent = styled.div`
   }
 
   .modal-apply-btn:hover,.modal-cancel-btn:hover {
-    box-shadow: 1px 3px 10px black;
+    box-shadow: 0 0 10px white;
   }
 
   .modal-apply-btn:active, .modal-cancel-btn:active {
@@ -109,7 +109,7 @@ const EditModalContent = (props) => {
     };
 
     return (
-        <StyledModalContent>
+        <StyledEditModalContent>
             <React.Fragment>
                 <div className={'modal-title-wrapper'}>
                     <p className={'modal-title'}>Editing Meditation</p>
@@ -145,11 +145,11 @@ const EditModalContent = (props) => {
                                         morning
                                     </label>
                                     <label className={'radio-label'}>
-                                        <Field checked={() => !values.picked && initialFormValues.daytime === '1' ? 'checked' : false} type={"radio"} name={"picked"} value={'2'}/>
+                                        <Field checked={() => !values.picked && initialFormValues.daytime === '2' ? 'checked' : false} type={"radio"} name={"picked"} value={'2'}/>
                                         afternoon
                                     </label>
                                     <label className={'radio-label'}>
-                                        <Field checked={() => !values.picked && initialFormValues.daytime === '1' ? 'checked' : false} type={"radio"} name={"picked"} value={'3'}/>
+                                        <Field checked={() => !values.picked && initialFormValues.daytime === '3' ? 'checked' : false} type={"radio"} name={"picked"} value={'3'}/>
                                         evening
                                     </label>
                                 </div>
@@ -164,7 +164,7 @@ const EditModalContent = (props) => {
                     )}
                 </Formik>
             </React.Fragment>
-        </StyledModalContent>
+        </StyledEditModalContent>
     )
 }
 
