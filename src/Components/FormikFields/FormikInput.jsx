@@ -4,14 +4,16 @@ import styled from 'styled-components';
 import {useField} from "formik";
 
 const StyledFormikInput = styled.div`
-  
+  .label {
+    font-size: 18px;
+  }
 `
 const FormikInput = (props) => {
     const [field, meta, helpers] = useField(props.name);
 
     return (
         <StyledFormikInput>
-            <label>{props.label}</label>
+            <label className={'label'}>{props.label}</label>
             <input {...field} {...props}/>        {/* ...field  =  value={} onChange={} onBlur={}  ...props = type={} */}
         </StyledFormikInput>
     );

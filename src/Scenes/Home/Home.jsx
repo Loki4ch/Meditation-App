@@ -7,8 +7,9 @@ const StyledHome = styled.div`
   position: relative;
   
   .alert-text {
+    font-size: ${props => props.theme.largeFontSize};
+    margin-top: 20%;
     text-align: center;
-    color: rgb(205, 238, 226);
   }
 `
 
@@ -35,7 +36,7 @@ const Home = (props) => {
         <StyledHome>
             <div className={'main-wrapper'}>
                 {!cardsList.length &&
-                    <h2 className={'alert-text'}>No meditations yet ;(</h2>
+                    <p className={'alert-text'}>No meditations yet ;(</p>
                 }
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (

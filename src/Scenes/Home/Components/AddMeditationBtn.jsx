@@ -10,7 +10,7 @@ const StyledAddMeditationBtn = styled.div`
     height: 60px;
     border-radius: 50%;
     border: none;
-    color: ${props => props.theme.baseBackgroundColor};
+    color: ${props => props.theme.baseFontColor};
     background-color: ${props => props.theme.accentBackgroundColor};
     font-size: 40px;
     position: fixed;

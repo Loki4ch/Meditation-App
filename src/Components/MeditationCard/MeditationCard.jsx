@@ -13,22 +13,24 @@ const StyledMeditationCard = styled.div`
     min-height: 200px;
     margin: 10px 10px 20px 10px;
     border-radius: 10px;
-    box-shadow:  0 0 7px black;
+    box-shadow:  0 0 10px black;
     display: flex;
     justify-content: space-between;
-    position: relative; 
+    position: relative;
   }
   
   .main-wrapper-morning {
-    background: linear-gradient(135deg, #fad961 0%,#f76b1c 100%);
+    background: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);
+    color: ${props => props.theme.accentBackgroundColor};
   }
 
   .main-wrapper-afternoon {
-    background: linear-gradient(135deg, #c3ec52 0%,#0ba29d 100%);
+    background: linear-gradient(135deg, #c3ec52 0%, #0ba29d 100%);
+    color: ${props => props.theme.accentBackgroundColor};
   }
 
   .main-wrapper-evening {
-    background: linear-gradient(135deg, #65799b 0%,#5e2563 100%);
+    background: linear-gradient(135deg, #65799b 0%, #5e2563 100%);
   }
   
   .btn-wrapper {
@@ -42,7 +44,7 @@ const StyledMeditationCard = styled.div`
     margin-right: 10px;
     border-radius: 50%;
     border: none;
-    color: ${props => props.theme.baseBackgroundColor};
+    color: ${props => props.theme.baseFontColor};
     background-color: ${props => props.theme.accentBackgroundColor};
     transition: all 0.3s;
     display: flex;
@@ -57,10 +59,6 @@ const StyledMeditationCard = styled.div`
   .delete-btn:active, .edit-btn:active, .start-btn:active {
     background: ${props => props.theme.baseBackgroundColor};
   }
-
-  .edit-btn {
-    
-  }
   
   .start-btn {
     height: 80px;
@@ -73,6 +71,7 @@ const StyledMeditationCard = styled.div`
   }
   
   .card-header {
+    font-size: ${props => props.theme.largeFontSize};
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -84,8 +83,9 @@ const StyledMeditationCard = styled.div`
   }
   
   .daytime-info-text {
+    font-size: 16px;
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     left: 20px;
   }
 `
@@ -109,8 +109,8 @@ const MeditationCard = (props) => {
         <StyledMeditationCard>
             <div className={setMeditationBackground(props.daytime)}>
                 <div className={'card-wrapper'}>
-                    <h2 className={'card-header'}>{props.name}</h2>
-                    <div className={'description-wrapper'}>{props.description}</div>
+                    <p className={'card-header'}>{props.name}</p>
+                    <p className={'description-wrapper'}>{props.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
                     <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}><Cross/></button>
@@ -123,7 +123,7 @@ const MeditationCard = (props) => {
                     </ModalContext.Consumer>
                     <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>
                 </div>
-                <div className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</div>
+                <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
             </div>
         </StyledMeditationCard>
     )

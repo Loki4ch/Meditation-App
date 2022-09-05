@@ -17,7 +17,7 @@ const StyledMeditationBasics = styled.div`
     display: flex;
     justify-content: center;
   }
-  
+    
   .meditation-img {
     border-radius: 100px;
     width: 568px;
@@ -44,7 +44,7 @@ const MeditationBasics = (props) => {
                 </div>
                 <div className={'headers-wrap'}>
                     <h1>How to Meditate</h1>
-                    <h2>Meditation is something everyone can do, here’s how</h2>
+                    <h3>Meditation is something everyone can do, here’s how</h3>
                     <div className={'text-wrap'}>
                         <p>Meditation is simpler (and harder) than most people think. Read these steps, make sure you’re somewhere where you can relax into this process, set a timer, and give it a shot:</p>
                         <h4>1) Take a seat</h4>

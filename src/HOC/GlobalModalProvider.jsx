@@ -12,6 +12,7 @@ const StyledModalWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
   
   .modal-window {
     width: 500px;
@@ -19,8 +20,8 @@ const StyledModalWrapper = styled.div`
     padding: 5px 10px 10px 10px;
     border-radius: 10px;
     border: 2px solid ${props => props.theme.accentBackgroundColor};
-    background: ${props => props.theme.additionalBackgroundColor};
-    box-shadow:  0 0 7px black;
+    background: ${props => props.theme.accentBackgroundColor};
+    box-shadow:  0 0 15px black;
     align-items: center;
   }
 `
