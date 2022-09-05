@@ -8,17 +8,28 @@ import EditModalContent from "../../Scenes/Home/Components/EditModelContent.jsx"
 import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
 
 const StyledMeditationCard = styled.div`
-  max-width: 700px;
-  min-height: 200px;
-  margin: 10px 10px 20px 10px;
-  border-radius: 10px;
-  border: 2px solid ${props => props.theme.accentBackgroundColor};
-  // background: ${props => props.theme.additionalBackgroundColor};
-  background:linear-gradient(135deg, #5b247a 0%,#1bcedf 100%);
-  box-shadow:  0 0 7px black;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+  .main-wrapper-morning, .main-wrapper-afternoon, .main-wrapper-evening {
+    max-width: 700px;
+    min-height: 200px;
+    margin: 10px 10px 20px 10px;
+    border-radius: 10px;
+    box-shadow:  0 0 7px black;
+    display: flex;
+    justify-content: space-between;
+    position: relative; 
+  }
+  
+  .main-wrapper-morning {
+    background: linear-gradient(135deg, #fad961 0%,#f76b1c 100%);
+  }
+
+  .main-wrapper-afternoon {
+    background: linear-gradient(135deg, #c3ec52 0%,#0ba29d 100%);
+  }
+
+  .main-wrapper-evening {
+    background: linear-gradient(135deg, #65799b 0%,#5e2563 100%);
+  }
   
   .btn-wrapper {
     margin-bottom: 40px;
@@ -79,32 +90,41 @@ const StyledMeditationCard = styled.div`
   }
 `
 
-const SetMeditationDaytime = (daytimeIndex) => {
+const setMeditationDaytime = (daytimeIndex) => {
     if (daytimeIndex === '1') return 'Morning meditation';
     else if (daytimeIndex === '2') return 'Afternoon meditation';
     else if (daytimeIndex === '3') return 'Evening meditation';
     else return '';
 }
 
+const setMeditationBackground = (daytimeIndex) => {
+    if (daytimeIndex === '1') return 'main-wrapper-morning';
+    else if (daytimeIndex === '2') return 'main-wrapper-afternoon';
+    else if (daytimeIndex === '3') return 'main-wrapper-evening';
+    else return '';
+}
+
 const MeditationCard = (props) => {
     return (
         <StyledMeditationCard>
-            <div className={'card-wrapper'}>
-                <h2 className={'card-header'}>{props.name}</h2>
-                <div className={'description-wrapper'}>{props.description}</div>
+            <div className={setMeditationBackground(props.daytime)}>
+                <div className={'card-wrapper'}>
+                    <h2 className={'card-header'}>{props.name}</h2>
+                    <div className={'description-wrapper'}>{props.description}</div>
+                </div>
+                <div className={'btn-wrapper'}>
+                    <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}><Cross/></button>
+                    <ModalContext.Consumer>
+                        {value => (
+                            <button type={'button'} className={'edit-btn'} onClick={() => value(
+                                <EditModalContent modalValue={value} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
+                            )}><Edit/></button>
+                        )}
+                    </ModalContext.Consumer>
+                    <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>
+                </div>
+                <div className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</div>
             </div>
-            <div className={'btn-wrapper'}>
-                <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}><Cross/></button>
-                <ModalContext.Consumer>
-                    {value => (
-                        <button type={'button'} className={'edit-btn'} onClick={() => value(
-                            <EditModalContent modalValue={value} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
-                        )}><Edit/></button>
-                    )}
-                </ModalContext.Consumer>
-                <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>
-            </div>
-            <div className={'daytime-info-text'}>{SetMeditationDaytime(props.daytime)}</div>
         </StyledMeditationCard>
     )
 }

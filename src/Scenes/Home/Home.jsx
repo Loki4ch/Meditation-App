@@ -5,6 +5,11 @@ import MeditationCard from "../../Components/MeditationCard/MeditationCard.jsx";
 
 const StyledHome = styled.div`
   position: relative;
+  
+  .alert-text {
+    text-align: center;
+    color: rgb(205, 238, 226);
+  }
 `
 
 
@@ -29,6 +34,9 @@ const Home = (props) => {
     return (
         <StyledHome>
             <div className={'main-wrapper'}>
+                {!cardsList.length &&
+                    <h2 className={'alert-text'}>No meditations yet ;(</h2>
+                }
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
                         <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList} index={index}/>
