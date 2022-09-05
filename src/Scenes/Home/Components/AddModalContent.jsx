@@ -15,7 +15,6 @@ const StyledModalContent = styled.div`
   }
 
   .input-fields-wrapper {
-    
   }
   
   .input-field, .text-area {
