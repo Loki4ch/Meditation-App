@@ -138,7 +138,7 @@ const EditModalContent = (props) => {
                                     <FormikInput className={'input-field'} name={'name'} placeholder={'Enter meditation name...'} type={'text'} label={'Name'}/>
                                     <FormikTextArea className={'text-area'} control={'textarea'} name={'description'} placeholder={'Enter meditation description...'} type={'text'} label={'Description'}/>
                                 </div>
-                                <p className={'radio-group-title'} id={"radio-group"}>Choose meditation daytime</p>
+                                <p className={'radio-group-title'} id={"radio-group"}>Meditation daytime</p>
                                 <div role={"group"} aria-labelledby={"radio-group"} className={'radio-wrapper'}>
                                     <label className={'radio-label'}>
                                         <Field checked={() => !values.picked && initialFormValues.daytime === '1' ? 'checked' : false} type={"radio"} name={"picked"} value={'1'}/>
