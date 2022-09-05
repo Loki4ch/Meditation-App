@@ -168,5 +168,4 @@ const EditModalContent = (props) => {
     )
 }
 
-
 export default EditModalContent;
