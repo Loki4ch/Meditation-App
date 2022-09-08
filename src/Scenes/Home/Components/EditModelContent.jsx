@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from 'styled-components';
 import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
@@ -107,6 +107,7 @@ const EditModalContent = (props) => {
         value(false);
         return setCardsList([...cardsList, cardData]);
     };
+
 
     return (
         <StyledEditModalContent>
