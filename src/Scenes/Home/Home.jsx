@@ -14,6 +14,7 @@ const StyledHome = styled.div`
 `
 
 
+
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
 
