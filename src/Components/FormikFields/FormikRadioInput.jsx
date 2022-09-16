@@ -25,6 +25,7 @@ const FormikRadioInput = (props) => {
     );
 }
 
+
 FormikRadioInput.propTypes = {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
