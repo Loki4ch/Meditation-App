@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
+import FormikRadioInput from "../../../Components/FormikFields/FormikRadioInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
 
 const StyledEditModalContent = styled.div`
@@ -93,7 +94,6 @@ const EditModalContent = (props) => {
     const initialFormValues = {
         name: `${props.name}`,
         description: `${props.description}`,
-        daytime: `${props.daytime}`,
     };
 
     const cardData = {
@@ -108,6 +108,11 @@ const EditModalContent = (props) => {
         return setCardsList([...cardsList, cardData]);
     };
 
+    const isChecked = (daytime) => {
+        if (daytime === 1) {
+            return true;
+        }
+    }
 
     return (
         <StyledEditModalContent>
@@ -142,15 +147,16 @@ const EditModalContent = (props) => {
                                 <p className={'radio-group-title'} id={"radio-group"}>Meditation daytime</p>
                                 <div role={"group"} aria-labelledby={"radio-group"} className={'radio-wrapper'}>
                                     <label className={'radio-label'}>
-                                        <Field checked={() => !values.picked && initialFormValues.daytime === '1' ? 'checked' : false} type={"radio"} name={"picked"} value={'1'}/>
+                                        <FormikRadioInput checked={isChecked()} className={'radio-input-field'} name={'picked'} type={"radio"} value={'1'}/>
                                         morning
                                     </label>
                                     <label className={'radio-label'}>
-                                        <Field checked={() => !values.picked && initialFormValues.daytime === '2' ? 'checked' : false} type={"radio"} name={"picked"} value={'2'}/>
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'2'}/>
                                         afternoon
                                     </label>
                                     <label className={'radio-label'}>
-                                        <Field checked={() => !values.picked && initialFormValues.daytime === '3' ? 'checked' : false} type={"radio"} name={"picked"} value={'3'}/>
+                                        {/*checked={() => !values.picked && initialFormValues.daytime === '3' ? 'checked' : false}*/}
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'3'}/>
                                         evening
                                     </label>
                                 </div>
