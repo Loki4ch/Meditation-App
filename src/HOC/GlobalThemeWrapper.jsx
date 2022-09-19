@@ -1,17 +1,18 @@
 import React from "react";
 import {ThemeProvider, createGlobalStyle} from 'styled-components';
-import loraFont from '../assets/fonts/Lora-Regular.ttf'
+import heroFont from '../assets/fonts/Hero-Regular.ttf'
 
 const GlobalStyle = createGlobalStyle`
   * {
     color: rgb(205, 238, 226);
     box-sizing: border-box;
-    font-family: Lora Regular, serif;
+    font-family: Hero Regular, serif;
+    letter-spacing: 1px;
   }
   
   @font-face {
-    font-family: 'Lora Regular';
-    src: url(${loraFont}); format('ttf');
+    font-family: 'Hero Regular';
+    src: url(${heroFont}); format('ttf');
   }
   
   body {

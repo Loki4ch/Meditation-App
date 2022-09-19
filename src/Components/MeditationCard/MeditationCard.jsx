@@ -90,17 +90,17 @@ const StyledMeditationCard = styled.div`
   }
 `
 
-const setMeditationDaytime = (daytimeIndex) => {
-    if (daytimeIndex === '1') return 'Morning meditation';
-    else if (daytimeIndex === '2') return 'Afternoon meditation';
-    else if (daytimeIndex === '3') return 'Evening meditation';
+const setMeditationDaytime = (daytimeId) => {
+    if (daytimeId === '1') return 'Morning meditation';
+    else if (daytimeId === '2') return 'Afternoon meditation';
+    else if (daytimeId === '3') return 'Evening meditation';
     else return '';
 }
 
-const setMeditationBackground = (daytimeIndex) => {
-    if (daytimeIndex === '1') return 'main-wrapper-morning';
-    else if (daytimeIndex === '2') return 'main-wrapper-afternoon';
-    else if (daytimeIndex === '3') return 'main-wrapper-evening';
+const setMeditationBackground = (daytimeId) => {
+    if (daytimeId === '1') return 'main-wrapper-morning';
+    else if (daytimeId === '2') return 'main-wrapper-afternoon';
+    else if (daytimeId === '3') return 'main-wrapper-evening';
     else return '';
 }
 

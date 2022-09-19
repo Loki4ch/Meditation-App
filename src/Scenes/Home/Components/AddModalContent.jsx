@@ -98,7 +98,7 @@ const AddModalContent = (props) => {
     const cardData = {
         name: '',
         description: '',
-        daytime: '1',
+        daytime: 'morning',
     };
 
     const addMeditation = (value, setCardsList, cardsList) => {

@@ -17,6 +17,8 @@ const StyledAddMeditationBtn = styled.div`
     right: 40px;
     bottom: 60px;
     transition: all 0.3s;
+    letter-spacing: 0;
+    padding-bottom: 4px;
   }
   
   .add-btn:hover {
