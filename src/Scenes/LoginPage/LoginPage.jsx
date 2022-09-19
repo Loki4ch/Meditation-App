@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Form, Formik} from "formik";
 import FormikInput from "../../Components/FormikFields/FormikInput.jsx";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {userLoggedIn} from "../../store/userSlice.js";
 
