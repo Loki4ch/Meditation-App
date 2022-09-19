@@ -91,16 +91,16 @@ const StyledMeditationCard = styled.div`
 `
 
 const setMeditationDaytime = (daytimeId) => {
-    if (daytimeId === '1') return 'Morning meditation';
-    else if (daytimeId === '2') return 'Afternoon meditation';
-    else if (daytimeId === '3') return 'Evening meditation';
+    if (daytimeId === 'morning') return 'Morning meditation';
+    else if (daytimeId === 'afternoon') return 'Afternoon meditation';
+    else if (daytimeId === 'evening') return 'Evening meditation';
     else return '';
 }
 
 const setMeditationBackground = (daytimeId) => {
-    if (daytimeId === '1') return 'main-wrapper-morning';
-    else if (daytimeId === '2') return 'main-wrapper-afternoon';
-    else if (daytimeId === '3') return 'main-wrapper-evening';
+    if (daytimeId === 'morning') return 'main-wrapper-morning';
+    else if (daytimeId === 'afternoon') return 'main-wrapper-afternoon';
+    else if (daytimeId === 'evening') return 'main-wrapper-evening';
     else return '';
 }
 

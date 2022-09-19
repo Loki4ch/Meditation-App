@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
+import FormikRadioInput from "../../../Components/FormikFields/FormikRadioInput.jsx";
 
 const StyledAddModalContent = styled.div`
   .modal-title-wrapper {
@@ -138,17 +139,17 @@ const AddModalContent = (props) => {
                                     <FormikTextArea className={'text-area'} control={'textarea'} name={'description'} placeholder={'Enter meditation description...'} type={'text'} label={'Description'}/>
                                 </div>
                                 <p className={'radio-group-title'} id={"radio-group"}>Meditation daytime</p>
-                                <div role={"group"} aria-labelledby={"radio-group"} className={'radio-wrapper'}>
+                                <div className={'radio-wrapper'}>
                                     <label className={'radio-label'}>
-                                        <Field checked={'checked'} type={"radio"} name={"picked"} value={'1'}/>
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'morning'}/>
                                         morning
                                     </label>
                                     <label className={'radio-label'}>
-                                        <Field type={"radio"} name={"picked"} value={'2'}/>
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'afternoon'}/>
                                         afternoon
                                     </label>
                                     <label className={'radio-label'}>
-                                        <Field type={"radio"} name={"picked"} value={'3'}/>
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'evening'}/>
                                         evening
                                     </label>
                                 </div>
@@ -157,7 +158,7 @@ const AddModalContent = (props) => {
                                     <button type={'button'} className={'modal-cancel-btn'} onClick={() => {props.modalValue(false)}}>Cancel</button>
                                 </div>
                             </div>
-                            {!!(cardData.daytime = values.picked || '1')}
+                            {!!(cardData.daytime = values.picked || 'morning')}
                         </Form>
                     )}
                 </Formik>
