@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import {useField} from "formik";
 
 const StyledFormikRadioInput = styled.div`
-  //.label {
-  //  font-size: 18px;
-  //}
 `
 const FormikRadioInput = (props) => {
     const [field, meta, helpers] = useField(props.name);
@@ -18,7 +15,7 @@ const FormikRadioInput = (props) => {
     return (
         <StyledFormikRadioInput>
             <label className={'label'}>{props.label}</label>
-            <input checked={isChecked(props.value, props.daytime)} {...field} {...props}/>
+            <input className={'input'} checked={isChecked(props.value, props.daytime)} {...field} {...props}/>
         </StyledFormikRadioInput>
     );
 }

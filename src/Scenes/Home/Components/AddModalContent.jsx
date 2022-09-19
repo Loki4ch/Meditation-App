@@ -53,8 +53,18 @@ const StyledAddModalContent = styled.div`
   }
   
   .radio-label {
-    margin-left: 5px;
-    margin-bottom: 5px;
+    cursor: pointer;
+    max-width: 130px;
+    margin-bottom: 15px;
+    display: flex;
+    border-radius: 25px;
+    font-size: 16px;
+  }
+  
+  .radio-input-field {
+    margin-right: 10px;
+    //width: 1px;
+    //height: 1px;
   }
   
   .btn-wrapper {
@@ -135,8 +145,8 @@ const AddModalContent = (props) => {
                         <Form>
                             <div className={'form'}>
                                 <div className={'input-fields-wrapper'}>
-                                    <FormikInput className={'input-field'} name={'name'} placeholder={'Enter meditation name...'} type={'text'} label={'Name'}/>
-                                    <FormikTextArea className={'text-area'} control={'textarea'} name={'description'} placeholder={'Enter meditation description...'} type={'text'} label={'Description'}/>
+                                    <FormikInput className={'input-field'} name={'name'} placeholder={'Enter name...'} type={'text'} label={'Name'}/>
+                                    <FormikTextArea className={'text-area'} control={'textarea'} name={'description'} placeholder={'Enter description...'} type={'text'} label={'Description'}/>
                                 </div>
                                 <p className={'radio-group-title'} id={"radio-group"}>Meditation daytime</p>
                                 <div className={'radio-wrapper'}>
