@@ -94,19 +94,28 @@ const EditModalContent = (props) => {
     const initialFormValues = {
         name: `${props.name}`,
         description: `${props.description}`,
+        daytime: props.daytime,
     };
 
     const cardData = {
         name: '',
         description: '',
-        daytime: props.daytime,
+        daytime: '',
     };
+
+    console.log( 'DAYTIME', cardData.daytime);
 
     const addMeditation = (value, setCardsList, cardsList) => {
         console.log('Meditation added');
         value(false);
         return setCardsList([...cardsList, cardData]);
     };
+
+    const defaultDaytimeCheck = (pickedDaytime) => {
+        if (pickedDaytime) {
+            cardData.daytime = pickedDaytime;
+        } else return cardData.daytime = initialFormValues.daytime;
+    }
 
     return (
         <StyledEditModalContent>
@@ -140,27 +149,26 @@ const EditModalContent = (props) => {
                                 </div>
                                 <p className={'radio-group-title'} id={"radio-group"}>Meditation daytime</p>
                                 <div className={'radio-wrapper'}>
+                                    {!!(defaultDaytimeCheck(values.picked))}
                                     <label className={'radio-label'}>
-                                        <FormikRadioInput className={'radio-input-field'} name={'morning'} type={"radio"} value={'1'} daytime={cardData.daytime}/>
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'morning'} daytime={cardData.daytime}/>
                                         morning
                                     </label>
                                     <label className={'radio-label'}>
-                                        <FormikRadioInput className={'radio-input-field'} name={'afternoon'} type={"radio"} value={'2'} daytime={cardData.daytime}/>
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'afternoon'} daytime={cardData.daytime}/>
                                         afternoon
                                     </label>
                                     <label className={'radio-label'}>
-                                        {/*checked={() => !values.picked && initialFormValues.daytime === '3' ? 'checked' : false}*/}
-                                        <FormikRadioInput className={'radio-input-field'} name={'evening'} type={"radio"} value={'3'} daytime={cardData.daytime}/>
+                                        <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'evening'} daytime={cardData.daytime}/>
                                         evening
                                     </label>
                                 </div>
-                                <div>picked {values.picked}</div>
+                                {!!(defaultDaytimeCheck(values.picked))}
                                 <div className={'btn-wrapper'}>
                                     <button type={'submit'} className={'modal-apply-btn'}>Apply</button>
                                     <button type={'button'} className={'modal-cancel-btn'} onClick={() => {props.modalValue(false)}}>Cancel</button>
                                 </div>
                             </div>
-                            {!!(cardData.daytime = values.picked || initialFormValues.daytime)}
                         </Form>
                     )}
                 </Formik>

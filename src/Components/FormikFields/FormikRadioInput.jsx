@@ -11,14 +11,14 @@ const StyledFormikRadioInput = styled.div`
 const FormikRadioInput = (props) => {
     const [field, meta, helpers] = useField(props.name);
 
-    const isChecked = (inputName, daytime) => {
-        if (daytime === name) return true;
+    const isChecked = (inputValue, daytime) => {
+        if (daytime === inputValue) return true;
     }
 
     return (
         <StyledFormikRadioInput>
             <label className={'label'}>{props.label}</label>
-            <input checked={isChecked(props.name, props.daytime)} {...field} {...props}/>
+            <input checked={isChecked(props.value, props.daytime)} {...field} {...props}/>
         </StyledFormikRadioInput>
     );
 }
