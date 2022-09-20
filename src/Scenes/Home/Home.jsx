@@ -1,7 +1,8 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import AddMeditationBtn from "./Components/AddMeditationBtn.jsx";
 import MeditationCard from "../../Components/MeditationCard/MeditationCard.jsx";
+import {fetchMeditationsList} from "../../api/meditationsApi.js";
 
 const StyledHome = styled.div`
   position: relative;
@@ -16,6 +17,12 @@ const StyledHome = styled.div`
 
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
+
+    useEffect(() => {
+        fetchMeditationsList().then(({data}) => {
+            setCardsList(data);
+        })
+    }, [])
 
     const deleteMeditation = (index) => {
         const newCardsList = [...cardsList];
