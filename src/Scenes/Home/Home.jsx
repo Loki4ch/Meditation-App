@@ -9,9 +9,18 @@ const StyledHome = styled.div`
   position: relative;
   
   .alert-text {
-    font-size: ${props => props.theme.largeFontSize};
-    margin-top: 20%;
-    text-align: center;
+    position: absolute;
+    top: 70px;
+    left: calc(50% - 125px);
+    width: 250px;
+    height: 40px;
+    background-color: ${props => props.theme.accentBackgroundColor};
+    font-size: ${props => props.theme.smallFontSize};
+    border-radius: 25px;
+    box-shadow: 0 0 10px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `
 
@@ -24,6 +33,10 @@ const Home = (props) => {
             setCardsList(data);
         })
     }, [])
+
+    const checkListLength = () => {
+        if (!cardsList.length) return <div className={'alert-text'}>No meditations yet</div>;
+    }
 
     const deleteMeditation = (index) => {
         const newCardsList = [...cardsList];
@@ -40,13 +53,10 @@ const Home = (props) => {
 
     console.log('home rendered');
 
-    const getMeditationCards = () => {
-        if (cardsList === undefined) return <Spinner/>;
-    }
-
     return (
         <StyledHome>
             <div className={'main-wrapper'}>
+                {checkListLength()}
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
                         <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList} index={index}/>
