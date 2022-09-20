@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AddMeditationBtn from "./Components/AddMeditationBtn.jsx";
 import MeditationCard from "../../Components/MeditationCard/MeditationCard.jsx";
 import {fetchMeditationsList} from "../../api/meditationsApi.js";
+import Spinner from "../../Components/Spinner/Spinner.jsx";
 
 const StyledHome = styled.div`
   position: relative;
@@ -37,7 +38,11 @@ const Home = (props) => {
 
     const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
-    console.log('home rendered')
+    console.log('home rendered');
+
+    const getMeditationCards = () => {
+        if (cardsList === undefined) return <Spinner/>;
+    }
 
     return (
         <StyledHome>
