@@ -23,6 +23,7 @@ const StyledAddMeditationBtn = styled.div`
   
   .add-btn:hover {
     box-shadow: 0 0 10px white;
+    text-shadow: 0 0 10px white;
   }
 
   .add-btn:active {

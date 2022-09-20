@@ -4,7 +4,6 @@ import heroFont from '../assets/fonts/Hero-Regular.ttf'
 
 const GlobalStyle = createGlobalStyle`
   * {
-    color: rgb(205, 238, 226);
     box-sizing: border-box;
     font-family: Hero Regular, serif;
     letter-spacing: 1px;
@@ -16,12 +15,14 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
+    color: rgb(205, 238, 226);
     margin: 0;
     padding: 0;
   }
   
   button {
     cursor: pointer;
+    color: rgb(205, 238, 226);
   }
 `
 

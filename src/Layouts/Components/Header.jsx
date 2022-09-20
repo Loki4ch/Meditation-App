@@ -54,7 +54,7 @@ const StyledHeader = styled.div`
 
   a {
     text-decoration: none;
-    color: white;
+    color: rgb(205, 238, 226);
   }
 `
 
