@@ -1,5 +1,6 @@
 {
   "meditations": [
-    {"name": "Egor", "description": "Describe meditation", "daytime": "afternoon"}
+    {"id": "1", "name": "Egor", "description": "Describe meditation", "daytime": "afternoon"},
+    {"id": "2", "name": "Egor Philippov", "description": "Describe another meditation", "daytime": "evening"}
   ]
 }

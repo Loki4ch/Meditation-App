@@ -4,6 +4,7 @@ import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
 import FormikRadioInput from "../../../Components/FormikFields/FormikRadioInput.jsx";
+import {postMeditation} from "../../../api/meditationsApi.js";
 
 const StyledAddModalContent = styled.div`
   .modal-title-wrapper {
@@ -115,6 +116,16 @@ const AddModalContent = (props) => {
     const addMeditation = (value, setCardsList, cardsList) => {
         console.log('Meditation added');
         value(false);
+        postMeditation({
+            name: cardData.name,
+            description: cardData.description,
+            daytime: cardData.daytime
+        })
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
         return setCardsList([...cardsList, cardData]);
     };
 
