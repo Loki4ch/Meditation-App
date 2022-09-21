@@ -113,8 +113,6 @@ const EditModalContent = (props) => {
         daytime: '',
     };
 
-    console.log( 'DAYTIME', cardData.daytime);
-
     const addMeditation = (value, setCardsList, cardsList) => {
         console.log('Meditation added');
         value(false);

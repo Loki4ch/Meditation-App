@@ -120,7 +120,7 @@ const AddModalContent = (props) => {
 
     return (
         <StyledAddModalContent>
-            <React.Fragment>
+            <>
                 <div className={'modal-title-wrapper'}>
                     <p className={'modal-title'}>Creating New Meditation</p>
                 </div>
@@ -172,7 +172,7 @@ const AddModalContent = (props) => {
                         </Form>
                     )}
                 </Formik>
-            </React.Fragment>
+            </>
         </StyledAddModalContent>
     )
 }

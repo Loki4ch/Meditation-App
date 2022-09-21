@@ -14,8 +14,8 @@ const FormikRadioInput = (props) => {
 
     return (
         <StyledFormikRadioInput>
-            <label className={'label'}>{props.label}</label>
-            <input className={'input'} checked={isChecked(props.value, props.daytime)} {...field} {...props}/>
+            <label className={'label'} htmlFor={'radio-input'}>{props.label}</label>
+            <input id={'radio-input'} className={'input'} checked={isChecked(props.value, props.daytime)} {...field} {...props}/>
         </StyledFormikRadioInput>
     );
 }

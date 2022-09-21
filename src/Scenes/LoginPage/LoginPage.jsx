@@ -9,6 +9,11 @@ import {userLoggedIn} from "../../store/userSlice.js";
 
 const StyledLoginPage = styled.div`
   background-color: ${props => props.theme.partBackgroundTheme};
+  
+  .login {
+    
+  }
+  
 `
 
 const LoginPage = (props) => {
