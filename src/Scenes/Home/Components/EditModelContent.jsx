@@ -4,6 +4,7 @@ import {Form, Formik, Field} from "formik";
 import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import FormikRadioInput from "../../../Components/FormikFields/FormikRadioInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
+import {putMeditation} from "../../../api/meditationsApi.js";
 
 const StyledEditModalContent = styled.div`
   .modal-title-wrapper {
@@ -100,6 +101,7 @@ const StyledEditModalContent = styled.div`
   }
 `
 
+
 const EditModalContent = (props) => {
     const initialFormValues = {
         name: `${props.name}`,
@@ -113,10 +115,19 @@ const EditModalContent = (props) => {
         daytime: '',
     };
 
-    const addMeditation = (value, setCardsList, cardsList) => {
-        console.log('Meditation added');
+    const editMeditation = (value, setCardsList, cardsList) => {
+        console.log('Meditation edited');
         value(false);
-        return setCardsList([...cardsList, cardData]);
+        putMeditation(props.index,{
+            name: cardData.name,
+            description: cardData.description,
+            daytime: cardData.daytime
+        })
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
     };
 
     const defaultDaytimeCheck = (pickedDaytime) => {
@@ -146,7 +157,7 @@ const EditModalContent = (props) => {
                 } onSubmit={(formValues) => {
                     cardData.name = formValues.name;
                     cardData.description = formValues.description;
-                    addMeditation(props.modalValue, props.setCardsList, props.cardsList);
+                    editMeditation(props.modalValue, props.setCardsList, props.cardsList);
                 }}>
                     {({values}) => (
                         <Form>

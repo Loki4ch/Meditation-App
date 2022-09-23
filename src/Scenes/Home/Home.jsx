@@ -24,7 +24,6 @@ const StyledHome = styled.div`
   }
 `
 
-
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
 
@@ -40,18 +39,9 @@ const Home = (props) => {
         if (!cardsList.length) return <div className={'alert-text'}>No meditations yet</div>;
     }
 
-    const deleteMeditation = (index) => {
-        const newCardsList = [...cardsList];
-        newCardsList.splice(index, 1);
-        setCardsList(newCardsList);
-        console.log(`deleted card ${index}` )
-    }
-
     const editMeditation = (index, newName) => {
 
     }
-
-    const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
     console.log('home rendered');
 
@@ -61,7 +51,7 @@ const Home = (props) => {
                 {checkListLength()}
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
-                        <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList} index={index}/>
+                        <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList} index={index}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>

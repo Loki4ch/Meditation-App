@@ -117,6 +117,7 @@ const AddModalContent = (props) => {
         console.log('Meditation added');
         value(false);
         postMeditation({
+            id: 0,
             name: cardData.name,
             description: cardData.description,
             daytime: cardData.daytime

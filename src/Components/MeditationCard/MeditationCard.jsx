@@ -6,6 +6,7 @@ import Cross from '../../assets/icons/cross.svg';
 import Start from '../../assets/icons/start.svg';
 import EditModalContent from "../../Scenes/Home/Components/EditModelContent.jsx";
 import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
+import {removeMeditation} from "../../api/meditationsApi.js";
 
 const StyledMeditationCard = styled.div`
   .main-wrapper-morning, .main-wrapper-afternoon, .main-wrapper-evening {
@@ -104,6 +105,16 @@ const setMeditationBackground = (daytimeId) => {
     else return '';
 }
 
+const deleteMeditation = (index, cardsList, setCardsList) => {
+    removeMeditation(index);
+    const newCardsList = [...cardsList];
+    newCardsList.splice(index, 1);
+    setCardsList(newCardsList);
+    console.log(`deleted card ${index}`)
+}
+
+// const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
+
 const MeditationCard = (props) => {
     return (
         <StyledMeditationCard>
@@ -113,11 +124,11 @@ const MeditationCard = (props) => {
                     <p className={'description-wrapper'}>{props.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
-                    <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.index)}}><Cross/></button>
+                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(props.index, props.cardsList, props.setCardsList)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                <EditModalContent modalValue={value} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
+                                <EditModalContent modalValue={value} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation} index={props.index}/>
                             )}><Edit/></button>
                         )}
                     </ModalContext.Consumer>

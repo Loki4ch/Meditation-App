@@ -1,16 +1,28 @@
 {
   "meditations": [
     {
-      "id": "1",
-      "name": "Egor",
-      "description": "Describe meditation",
-      "daytime": "afternoon"
+      "name": "Egor 1",
+      "description": "Description 1 edited",
+      "daytime": "evening",
+      "id": 1
     },
     {
-      "id": "2",
-      "name": "Egor Philippov",
-      "description": "Describe another meditation",
-      "daytime": "evening"
+      "name": "Egor 2",
+      "description": "Description 2 edited",
+      "daytime": "afternoon",
+      "id": 2
+    },
+    {
+      "name": "Egor 3",
+      "description": "Description 3 edited",
+      "daytime": "evening",
+      "id": 3
+    },
+    {
+      "name": "Egor 4",
+      "description": "Description 4 edited",
+      "daytime": "morning",
+      "id": 4
     }
   ]
 }
