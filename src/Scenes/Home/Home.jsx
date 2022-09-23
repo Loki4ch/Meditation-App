@@ -29,9 +29,11 @@ const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
 
     useEffect(() => {
-        fetchMeditationsList().then(({data}) => {
-            setCardsList(data);
-        })
+        const fetchData = async () => {
+            const response = await fetchMeditationsList();
+            setCardsList(response.data);
+        }
+        fetchData();
     }, [])
 
     const checkListLength = () => {
