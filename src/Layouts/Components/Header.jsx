@@ -18,7 +18,7 @@ const StyledHeader = styled.div`
   }
 
   .header-logo {
-    margin: 0;
+    margin: 5px 0 0 0;
     width: 150px;
     height: 40px;
   }

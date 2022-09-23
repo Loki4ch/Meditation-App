@@ -7,7 +7,7 @@
     "start": "webpack serve",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server ./fakeServer/db.json --port 3003"
+    "server": "json-server ./fakeServer/db.json -m ./node_modules/json-server-auth --port 3003"
   },
   "author": "",
   "license": "ISC",

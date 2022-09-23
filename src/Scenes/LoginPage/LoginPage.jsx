@@ -13,7 +13,6 @@ const StyledLoginPage = styled.div`
   .login {
     
   }
-  
 `
 
 const LoginPage = (props) => {
@@ -52,8 +51,8 @@ const LoginPage = (props) => {
                 if (!isValid) return errors;
             }}>
                 <Form>
-                    <FormikInput name={'login'} placeholder={'Enter login'} type={'email'} label={'Email:'}/>
-                    <FormikInput name={'password'} placeholder={'Enter password'} type={'password'} label={'Password:'}/>
+                    <FormikInput name={'login'} placeholder={'Enter login...'} type={'email'} label={'Email:'}/>
+                    <FormikInput name={'password'} placeholder={'Enter password...'} type={'password'} label={'Password:'}/>
                     <button type={'submit'}>Login</button>
                 </Form>
             </Formik>
