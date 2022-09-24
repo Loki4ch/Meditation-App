@@ -152,7 +152,7 @@ const AddModalContent = (props) => {
                     if (!isValid) return errors;
                 }
                 } onSubmit={(formValues) => {
-                    cardData.id = 0;
+                    cardData.id = 0;                        // JUST LET IT BE SO
                     cardData.name = formValues.name;
                     cardData.description = formValues.description;
                     addMeditation(props.modalValue, props.setCardsList, props.cardsList);

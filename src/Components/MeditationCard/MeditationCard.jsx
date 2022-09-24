@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Edit from '../../assets/icons/edit.svg';
@@ -116,25 +116,27 @@ const deleteMeditation = (index, cardsList, setCardsList) => {
 // const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
 const MeditationCard = (props) => {
+    const [selectedCardData, setSelectedCardData] = useState({name: props.name, description: props.description, daytime: props.daytime});
+
     return (
         <StyledMeditationCard>
-            <div className={setMeditationBackground(props.daytime)}>
+            <div className={setMeditationBackground(selectedCardData.daytime)}>
                 <div className={'card-wrapper'}>
-                    <p className={'card-header'}>{props.name}</p>
-                    <p className={'description-wrapper'}>{props.description}</p>
+                    <p className={'card-header'}>{selectedCardData.name}</p>
+                    <p className={'description-wrapper'}>{selectedCardData.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
                     <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(props.index, props.cardsList, props.setCardsList)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                <EditModalContent modalValue={value} id={props.id} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation} index={props.index}/>
+                                <EditModalContent modalValue={value} id={props.id} name={selectedCardData.name} description={selectedCardData.description} daytime={selectedCardData.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation} index={props.index} setSelectedCardData={setSelectedCardData}/>
                             )}><Edit/></button>
                         )}
                     </ModalContext.Consumer>
                     <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>
                 </div>
-                <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
+                <p className={'daytime-info-text'}>{setMeditationDaytime(selectedCardData.daytime)}</p>
             </div>
         </StyledMeditationCard>
     )
