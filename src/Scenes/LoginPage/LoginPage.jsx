@@ -22,7 +22,7 @@ const StyledLoginPage = styled.div`
     border: 1px  solid ${props => props.theme.accentBackgroundColor};
   }
 
-  .input-field:focus, .text-area:focus {
+  .input-field:focus {
     box-shadow:  0 0 12px ${props => props.theme.accentBackgroundColor};
     outline: none;
     transition: all 0.3s;
@@ -65,7 +65,6 @@ const LoginPage = (props) => {
         <StyledLoginPage>
             <Formik initialValues={initialFormValues} onSubmit={(formValues) => {
                 console.log('form values', formValues);
-                console.log('dispatch');
                 dispatch(userLoggedIn({id: formValues.password, name: formValues.login}));
                 navigate('/home');
                 }

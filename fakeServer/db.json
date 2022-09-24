@@ -1,28 +1,52 @@
 {
   "meditations": [
     {
-      "name": "Egor 1",
-      "description": "Description 1 edited",
-      "daytime": "evening",
-      "id": 1
+      "id": 1,
+      "name": "f",
+      "description": "f",
+      "daytime": "morning"
     },
     {
-      "name": "Egor 2",
-      "description": "Description 2 edited",
-      "daytime": "afternoon",
-      "id": 2
+      "id": 2,
+      "name": "s",
+      "description": "s",
+      "daytime": "afternoon"
     },
     {
-      "name": "Egor 3",
-      "description": "Description 3 edited",
-      "daytime": "evening",
-      "id": 3
+      "id": 3,
+      "name": "t",
+      "description": "t",
+      "daytime": "evening"
     },
     {
-      "name": "Egor 4",
-      "description": "Description 4 edited",
-      "daytime": "morning",
-      "id": 4
+      "id": 4,
+      "name": "f",
+      "description": "f",
+      "daytime": "afternoon"
+    },
+    {
+      "id": 5,
+      "name": "fff",
+      "description": "fff",
+      "daytime": "evening"
+    },
+    {
+      "id": 6,
+      "name": "fdg",
+      "description": "dfgd",
+      "daytime": "morning"
+    },
+    {
+      "id": 7,
+      "name": "seven",
+      "description": "s",
+      "daytime": "afternoon"
+    },
+    {
+      "id": 8,
+      "name": "eigth",
+      "description": "df",
+      "daytime": "evening"
     }
   ]
 }

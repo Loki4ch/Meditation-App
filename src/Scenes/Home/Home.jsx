@@ -30,7 +30,10 @@ const Home = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetchMeditationsList();
-            setCardsList(response.data);
+            if (response.data) {
+                setCardsList(response.data);
+                console.log('RESPONSE DATA', response.data)
+            }
         }
         fetchData();
     }, [])
@@ -49,9 +52,10 @@ const Home = (props) => {
         <StyledHome>
             <div className={'main-wrapper'}>
                 {checkListLength()}
+                {console.log('CADRS LIST', cardsList)}
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
-                        <MeditationCard key={index} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList} index={index}/>
+                        <MeditationCard key={index} id={index} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>

@@ -10,7 +10,7 @@ import LoginLayout from "../Layouts/LoginLayout.jsx";
 
 const RootRouter = (props) => {
     const [redirectLocation, setRedirectLocation] = useState();
-    const {location} = useLocation();
+    const location = useLocation();
     const user = useSelector(store => store.userSlice);
 
     const renderForGuestUser = (Scene) => {
@@ -22,10 +22,12 @@ const RootRouter = (props) => {
     }
 
     const renderForLoggedInUser = (Scene) => {
-        if (user.isLoggedIn) {    // пока юзер залогинен
+        if (user.isLoggedIn && redirectLocation) {
             console.log('now logged in true');
+            return <Navigate to={redirectLocation}/>
+        } else if (user.isLoggedIn && !redirectLocation) {
             return Scene;
-        } else {      // как только разлогинится
+        } else {
             // setRedirectLocation(location);
             return <Navigate to={'/login-page'}/>
         }

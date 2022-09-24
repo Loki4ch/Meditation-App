@@ -109,6 +109,7 @@ const AddModalContent = (props) => {
     };
 
     const cardData = {
+        id: 0,
         name: '',
         description: '',
         daytime: 'morning',
@@ -118,7 +119,7 @@ const AddModalContent = (props) => {
         console.log('Meditation added');
         value(false);
         postMeditation({
-            id: 0,
+            id: cardData.id,
             name: cardData.name,
             description: cardData.description,
             daytime: cardData.daytime
@@ -128,6 +129,7 @@ const AddModalContent = (props) => {
             }, (error) => {
                 console.log(error);
             });
+        console.log('Card Id', cardData.id);
         return setCardsList([...cardsList, cardData]);
     };
 
@@ -150,6 +152,7 @@ const AddModalContent = (props) => {
                     if (!isValid) return errors;
                 }
                 } onSubmit={(formValues) => {
+                    cardData.id = 0;
                     cardData.name = formValues.name;
                     cardData.description = formValues.description;
                     addMeditation(props.modalValue, props.setCardsList, props.cardsList);
