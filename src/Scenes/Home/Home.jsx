@@ -26,20 +26,23 @@ const StyledHome = styled.div`
 
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
-    const [cardsListLength, setCardsListLength] = useState(cardsList.length);
 
     useEffect(() => {
         console.log('USE EFFECT')
         const fetchData = async () => {
             const response = await fetchMeditationsList();
-            if (response.data) {
+            if (response.data.length !== cardsList.length) {
+
                 setCardsList(response.data);
                 console.log('RESPONSE DATA', response.data)
             }
         }
         fetchData();
-        setCardsListLength(cardsList.length)
-    }, [cardsList.length])
+    }, [])
+
+    const checkListEmpty = () => {
+        if (cardsList === undefined) return <Spinner/>;
+    }
 
     const checkListLength = () => {
         if (!cardsList.length) return <div className={'alert-text'}>No meditations yet</div>;
@@ -54,11 +57,12 @@ const Home = (props) => {
     return (
         <StyledHome>
             <div className={'main-wrapper'}>
+                {checkListEmpty()}
                 {checkListLength()}
                 {console.log('CADRS LIST', cardsList)}
-                {(cardsList && !!cardsList.length) &&
+                {(cardsList && cardsList.length) &&
                     cardsList.map((card, index) => (
-                        <MeditationCard key={index} id={card.id} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
+                        <MeditationCard key={index} id={card.id} cardIndex={index} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>

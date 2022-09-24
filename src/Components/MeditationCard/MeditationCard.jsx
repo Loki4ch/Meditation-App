@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useCallback} from "react";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Edit from '../../assets/icons/edit.svg';
@@ -105,21 +105,19 @@ const setMeditationBackground = (daytimeId) => {
     else return '';
 }
 
-const deleteMeditation = (id, cardsList, setCardsList) => {
+const deleteMeditation = (id, index, cardsList, setCardsList) => {
     removeMeditation(id);
     const newCardsList = [...cardsList];
-    console.log(`INITIAL ID is ${id}`)
-    --id;
-    console.log(`NOW ID is ${id}`)
-    newCardsList.splice(id, 1);
-    console.log(`deleted card ${id}`)
+    console.log(`INITIAL index is ${index}`)
+    newCardsList.splice(index, 1);
+    console.log(`deleted card ${index}`)
     setCardsList(newCardsList);
 }
 
 // const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
 const MeditationCard = (props) => {
-    const [selectedCardData, setSelectedCardData] = useState({id: props.id, name: props.name, description: props.description, daytime: props.daytime});
+    const [selectedCardData, setSelectedCardData] = useState({id: props.id, index: props.cardIndex, name: props.name, description: props.description, daytime: props.daytime});
 
     return (
         <StyledMeditationCard>
@@ -129,11 +127,11 @@ const MeditationCard = (props) => {
                     <p className={'description-wrapper'}>{selectedCardData.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
-                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(selectedCardData.id, props.cardsList, props.setCardsList)}}><Cross/></button>
+                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(selectedCardData.id, selectedCardData.index, props.cardsList, props.setCardsList)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                <EditModalContent modalValue={value} id={props.id} name={selectedCardData.name} description={selectedCardData.description} daytime={selectedCardData.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation} index={props.index} setSelectedCardData={setSelectedCardData}/>
+                                <EditModalContent modalValue={value} id={selectedCardData.id} index={selectedCardData.index} name={selectedCardData.name} description={selectedCardData.description} daytime={selectedCardData.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation} setSelectedCardData={setSelectedCardData}/>
                             )}><Edit/></button>
                         )}
                     </ModalContext.Consumer>
