@@ -105,12 +105,15 @@ const setMeditationBackground = (daytimeId) => {
     else return '';
 }
 
-const deleteMeditation = (index, cardsList, setCardsList) => {
-    removeMeditation(index);
+const deleteMeditation = (id, cardsList, setCardsList) => {
+    removeMeditation(id);
     const newCardsList = [...cardsList];
-    newCardsList.splice(index, 1);
-    setCardsList(newCardsList);
-    console.log(`deleted card ${index}`)
+    console.log(`INITIAL ID is ${id}`)
+    const newId = id - 1;
+    console.log(`NOW ID is ${newId}`)
+    newCardsList.splice(newId, 1);
+    console.log(`deleted card ${newId}`)
+    return setCardsList(newCardsList);
 }
 
 // const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
@@ -126,7 +129,7 @@ const MeditationCard = (props) => {
                     <p className={'description-wrapper'}>{selectedCardData.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
-                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(props.index, props.cardsList, props.setCardsList)}}><Cross/></button>
+                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(props.id, props.cardsList, props.setCardsList)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(

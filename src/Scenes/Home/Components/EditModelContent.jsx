@@ -111,6 +111,7 @@ const EditModalContent = (props) => {
     };
 
     const cardData = {
+        id: props.id,
         name: '',
         description: '',
         daytime: '',

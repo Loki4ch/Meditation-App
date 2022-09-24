@@ -133,6 +133,12 @@ const AddModalContent = (props) => {
         return setCardsList([...cardsList, cardData]);
     };
 
+    const idReturner = () => {
+        if (props.cardsList.length) {
+            return props.cardsList[props.cardsList.length - 1].id + 1
+        } else return 1;
+    }
+
     return (
         <StyledAddModalContent>
             <>
@@ -152,7 +158,7 @@ const AddModalContent = (props) => {
                     if (!isValid) return errors;
                 }
                 } onSubmit={(formValues) => {
-                    cardData.id = 0;                        // JUST LET IT BE SO
+                    cardData.id = idReturner();                        // JUST LET IT BE SO
                     cardData.name = formValues.name;
                     cardData.description = formValues.description;
                     addMeditation(props.modalValue, props.setCardsList, props.cardsList);

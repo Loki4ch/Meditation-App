@@ -18,7 +18,7 @@ export const postMeditation = async ({id, name, description, daytime}) => {
 
 export const putMeditation = async (id, {name, description, daytime}) => {
     try {
-        return await fakeServerInstance.put(`/meditations/${id+1}`, {name, description, daytime});
+        return await fakeServerInstance.put(`/meditations/${id}`, {name, description, daytime});
     } catch (e) {
         console.log(e);
     }
@@ -26,7 +26,7 @@ export const putMeditation = async (id, {name, description, daytime}) => {
 
 export const removeMeditation = async (id) => {
     try {
-        return await fakeServerInstance.delete(`/meditations/${id+1}`);
+        return await fakeServerInstance.delete(`/meditations/${id}`);
     } catch (e) {
         console.log(e);
     }

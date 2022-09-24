@@ -1,51 +1,15 @@
 {
   "meditations": [
     {
-      "name": "for 1212 dfdfd",
-      "description": "frod sdsd df ",
-      "daytime": "evening",
-      "id": 1
-    },
-    {
-      "name": "forge",
-      "description": "f11111111111111111",
-      "daytime": "morning",
-      "id": 2
-    },
-    {
-      "name": "ter",
-      "description": "tdf",
-      "daytime": "evening",
-      "id": 3
-    },
-    {
-      "name": "fifth",
-      "description": "f",
-      "daytime": "afternoon",
-      "id": 4
-    },
-    {
-      "name": "fff123",
-      "description": "fff",
-      "daytime": "evening",
-      "id": 5
-    },
-    {
-      "id": 6,
-      "name": "fdg",
-      "description": "dfgd",
+      "id": 1,
+      "name": "1",
+      "description": "1",
       "daytime": "morning"
     },
     {
-      "name": "seven",
-      "description": "ssdssdssdsssssssssssssssssssssssssssssssssssssssssss",
-      "daytime": "afternoon",
-      "id": 7
-    },
-    {
-      "id": 8,
-      "name": "eigth",
-      "description": "df",
+      "id": 3,
+      "name": "3",
+      "description": "3",
       "daytime": "evening"
     }
   ]

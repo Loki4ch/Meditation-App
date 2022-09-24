@@ -28,6 +28,7 @@ const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
 
     useEffect(() => {
+        console.log('USE EFFECT')
         const fetchData = async () => {
             const response = await fetchMeditationsList();
             if (response.data) {
@@ -36,7 +37,7 @@ const Home = (props) => {
             }
         }
         fetchData();
-    }, [])
+    }, [cardsList.length])
 
     const checkListLength = () => {
         if (!cardsList.length) return <div className={'alert-text'}>No meditations yet</div>;
@@ -55,7 +56,7 @@ const Home = (props) => {
                 {console.log('CADRS LIST', cardsList)}
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
-                        <MeditationCard key={index} id={index} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
+                        <MeditationCard key={index} id={card.id} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>
