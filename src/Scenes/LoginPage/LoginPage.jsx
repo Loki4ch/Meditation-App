@@ -8,10 +8,47 @@ import {useDispatch} from "react-redux";
 import {userLoggedIn} from "../../store/userSlice.js";
 
 const StyledLoginPage = styled.div`
-  background-color: ${props => props.theme.partBackgroundTheme};
+  color: ${props => props.theme.accentBackgroundColor};
+  background-color: transparent;
+
+  .input-field {
+    margin: 10px 10px 20px 10px;
+    padding: 10px 14px 10px 14px;
+    color: ${props => props.theme.accentBackgroundColor};
+    display: flex;
+    font-size: 20px;
+    border-radius: 25px;
+    background: transparent;
+    border: 1px  solid ${props => props.theme.accentBackgroundColor};
+  }
+
+  .input-field:focus, .text-area:focus {
+    box-shadow:  0 0 12px ${props => props.theme.accentBackgroundColor};
+    outline: none;
+    transition: all 0.3s;
+  }
   
-  .login {
-    
+  .submit-btn {
+    width: 260px;
+    height: 46px;
+    font-size: 17px;
+    margin: 15px 10px 15px 10px;
+    border-radius: 25px;
+    color: ${props => props.theme.accentBackgroundColor};
+    background: linear-gradient(135deg, #fcdf8a 0%,#f38381 100%);
+    border: none;
+  }
+
+  .submit-btn:hover {
+    color: white;
+    box-shadow: 0 0 15px white;
+    text-shadow: 0 0 10px white;
+    transition: all 0.3s;
+  }
+
+  .submit-btn:active {
+    box-shadow: 0 0 10px ${props => props.theme.accentBackgroundColor};
+    transition: all 0.1s;
   }
 `
 
@@ -51,9 +88,9 @@ const LoginPage = (props) => {
                 if (!isValid) return errors;
             }}>
                 <Form>
-                    <FormikInput name={'login'} placeholder={'Enter login...'} type={'email'} label={'Email:'}/>
-                    <FormikInput name={'password'} placeholder={'Enter password...'} type={'password'} label={'Password:'}/>
-                    <button type={'submit'}>Login</button>
+                    <FormikInput className={'input-field'} name={'login'} placeholder={'Enter email...'} type={'email'} label={'Email:'}/>
+                    <FormikInput className={'input-field'} name={'password'} placeholder={'Enter password...'} type={'password'} label={'Password:'}/>
+                    <button className={'submit-btn'} type={'submit'}>Login</button>
                 </Form>
             </Formik>
         </StyledLoginPage>

@@ -5,7 +5,7 @@ import {useField} from "formik";
 
 const StyledFormikInput = styled.div`
   .label {
-    font-size: 18px;
+    font-size: 17px;
   }
 `
 const FormikInput = (props) => {

@@ -90,6 +90,7 @@ const StyledEditModalContent = styled.div`
 
   .modal-apply-btn:hover,.modal-cancel-btn:hover {
     box-shadow: 0 0 10px white;
+    text-shadow: 0 0 10px white;
   }
 
   .modal-apply-btn:active, .modal-cancel-btn:active {
