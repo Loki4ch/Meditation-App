@@ -26,6 +26,7 @@ const StyledHome = styled.div`
 
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
+    const [cardsListLength, setCardsListLength] = useState(cardsList.length);
 
     useEffect(() => {
         console.log('USE EFFECT')
@@ -37,6 +38,7 @@ const Home = (props) => {
             }
         }
         fetchData();
+        setCardsListLength(cardsList.length)
     }, [cardsList.length])
 
     const checkListLength = () => {

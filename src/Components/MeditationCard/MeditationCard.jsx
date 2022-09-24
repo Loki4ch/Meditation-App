@@ -109,17 +109,17 @@ const deleteMeditation = (id, cardsList, setCardsList) => {
     removeMeditation(id);
     const newCardsList = [...cardsList];
     console.log(`INITIAL ID is ${id}`)
-    const newId = id - 1;
-    console.log(`NOW ID is ${newId}`)
-    newCardsList.splice(newId, 1);
-    console.log(`deleted card ${newId}`)
-    return setCardsList(newCardsList);
+    --id;
+    console.log(`NOW ID is ${id}`)
+    newCardsList.splice(id, 1);
+    console.log(`deleted card ${id}`)
+    setCardsList(newCardsList);
 }
 
 // const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
 
 const MeditationCard = (props) => {
-    const [selectedCardData, setSelectedCardData] = useState({name: props.name, description: props.description, daytime: props.daytime});
+    const [selectedCardData, setSelectedCardData] = useState({id: props.id, name: props.name, description: props.description, daytime: props.daytime});
 
     return (
         <StyledMeditationCard>
@@ -129,7 +129,7 @@ const MeditationCard = (props) => {
                     <p className={'description-wrapper'}>{selectedCardData.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
-                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(props.id, props.cardsList, props.setCardsList)}}><Cross/></button>
+                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(selectedCardData.id, props.cardsList, props.setCardsList)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(
