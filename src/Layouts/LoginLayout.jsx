@@ -13,6 +13,14 @@ const StyledLoginLayout = styled.div`
   position: relative;
   background-position: center;
   background-size: cover;
+
+  .welcome-text {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    font-size: 27px;
+    color: ${props => props.theme.accentBackgroundColor};
+  }
   
   .content {
     top: 10%;
@@ -25,10 +33,11 @@ const StyledLoginLayout = styled.div`
 const LoginLayout = (props) => {
     return (
         <StyledLoginLayout>
-            <main className={'content'}>
+            <div className={'welcome-text'}>Welcome to Meditativo</div>
+            <div className={'content'}>
                 {props.children}
                 <Outlet/>
-            </main>
+            </div>
         </StyledLoginLayout>
     );
 }

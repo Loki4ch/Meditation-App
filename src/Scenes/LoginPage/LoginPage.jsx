@@ -10,7 +10,7 @@ import {userLoggedIn} from "../../store/userSlice.js";
 const StyledLoginPage = styled.div`
   color: ${props => props.theme.accentBackgroundColor};
   background-color: transparent;
-
+  
   .input-field {
     margin: 10px 10px 20px 10px;
     padding: 10px 14px 10px 14px;
