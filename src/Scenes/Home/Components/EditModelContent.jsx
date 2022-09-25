@@ -132,11 +132,11 @@ const EditModalContent = (props) => {
                 console.log(error);
             });
         console.log('PROPS ID', props.id)
-        let removed = cardsList.splice(props.index, 1, cardData);
+        // let removed = cardsList.splice(props.index, 1, cardData);
         // return setCardsList(cardsList.splice(props.id, 1));
-        console.log('AFTER CARDS LIST', cardsList)
-        props.setSelectedCardData(cardData);
-        return setCardsList(cardsList);
+        // console.log('AFTER CARDS LIST', cardsList)
+        // props.setSelectedCardData(cardData);
+        // return setCardsList(cardsList);
     };
 
     const defaultDaytimeCheck = (pickedDaytime) => {

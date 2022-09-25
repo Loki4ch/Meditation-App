@@ -41,10 +41,6 @@ const Home = (props) => {
         fetchData();
     }, [cardsList.length])
 
-    // useEffect(() => {
-    //     renderCards
-    // }, [])
-
     const checkListEmpty = () => {
         if (cardsList === undefined) return <Spinner/>;
     }
@@ -61,7 +57,7 @@ const Home = (props) => {
         removeMeditation(id);
         const newCardsList = [...cardsList];
         console.log(`INITIAL index is ${index}`)
-        newCardsList.splice(index, 1, {});
+        newCardsList.splice(index, 1);
         console.log(`deleted card ${index}`)
         setCardsList(newCardsList);
     }
@@ -76,8 +72,8 @@ const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
                 {checkListEmpty()}
                 {checkListLength()}
                 {console.log('CADRS LIST', cardsList)}
-                {/*{(cardsList && cardsList.length) &&*/}
-                {cardsList.map((card, index) => (
+                {(cardsList && !!cardsList.length) &&
+                    cardsList.map((card, index) => (
                          <MeditationCard key={index} id={card.id} cardIndex={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
                     ))
                 }

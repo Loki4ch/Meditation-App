@@ -5,6 +5,18 @@
       "name": "1",
       "description": "1",
       "daytime": "morning"
+    },
+    {
+      "id": 2,
+      "name": "2",
+      "description": "2",
+      "daytime": "afternoon"
+    },
+    {
+      "id": 3,
+      "name": "3",
+      "description": "3",
+      "daytime": "evening"
     }
   ]
 }

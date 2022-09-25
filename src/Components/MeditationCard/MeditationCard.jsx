@@ -106,27 +106,26 @@ const setMeditationBackground = (daytimeId) => {
 }
 
 const MeditationCard = (props) => {
-    const [selectedCardData, setSelectedCardData] = useState({id: props.id, index: props.cardIndex, name: props.name, description: props.description, daytime: props.daytime});
 
     return (
         <StyledMeditationCard>
-            <div className={setMeditationBackground(selectedCardData.daytime)}>
+            <div className={setMeditationBackground(props.daytime)}>
                 <div className={'card-wrapper'}>
-                    <p className={'card-header'}>{selectedCardData.name}</p>
-                    <p className={'description-wrapper'}>{selectedCardData.description}</p>
+                    <p className={'card-header'}>{props.name}</p>
+                    <p className={'description-wrapper'}>{props.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
                     <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.id, props.cardIndex)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                <EditModalContent modalValue={value} id={selectedCardData.id} index={selectedCardData.index} name={selectedCardData.name} description={selectedCardData.description} daytime={selectedCardData.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation} setSelectedCardData={setSelectedCardData}/>
+                                <EditModalContent modalValue={value} id={props.id} index={props.index} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
                             )}><Edit/></button>
                         )}
                     </ModalContext.Consumer>
                     <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>
                 </div>
-                <p className={'daytime-info-text'}>{setMeditationDaytime(selectedCardData.daytime)}</p>
+                <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
             </div>
         </StyledMeditationCard>
     )
