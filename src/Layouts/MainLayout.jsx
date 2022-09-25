@@ -7,6 +7,8 @@ import Footer from "./Components/Footer.jsx";
 import sakuraImg from '../assets/images/sakura-30.png'
 
 const StyledMainLayout = styled.div`
+  position: relative;
+  
   .content {
     width: 100%;
     height: calc(100vh - 70px);

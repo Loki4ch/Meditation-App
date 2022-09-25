@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Edit from '../../assets/icons/edit.svg';
@@ -7,9 +7,10 @@ import Start from '../../assets/icons/start.svg';
 import EditModalContent from "../../Scenes/Home/Components/EditModelContent.jsx";
 import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
 import DeletePopUpContext from "../../Scenes/Home/Components/DeletePopUpContext.jsx";
-import {Link, Navigate} from "react-router-dom";
+import MeditationScreen from "../../Scenes/MeditationScreen/MeditationScreen.jsx";
 
 const StyledMeditationCard = styled.div`
+  
   .main-wrapper-morning, .main-wrapper-afternoon, .main-wrapper-evening {
     max-width: 700px;
     min-height: 200px;
@@ -107,32 +108,34 @@ const setMeditationBackground = (daytimeId) => {
 }
 
 const MeditationCard = (props) => {
+    const [meditationStarted, setMeditationStarted] = useState(false);
 
     return (
         <StyledMeditationCard>
-            <div className={setMeditationBackground(props.daytime)}>
-                <div className={'card-wrapper'}>
-                    <p className={'card-header'}>{props.name}</p>
-                    <p className={'description-wrapper'}>{props.description}</p>
+            <>
+                <div className={setMeditationBackground(props.daytime)}>
+                    <div className={'card-wrapper'}>
+                        <p className={'card-header'}>{props.name}</p>
+                        <p className={'description-wrapper'}>{props.description}</p>
+                    </div>
+                    <div className={'btn-wrapper'}>
+                        <ModalContext.Consumer>
+                            {value => (
+                                <>
+                                    <button type={'button'} className={'delete-btn'} onClick={() => value(
+                                        <DeletePopUpContext modalValue={value} id={props.id} index={props.cardIndex} deleteMeditation={props.deleteMeditation}/>)}><Cross/></button>
+                                    <button type={'button'} className={'edit-btn'} onClick={() => value(
+                                        <EditModalContent modalValue={value} id={props.id} index={props.cardIndex} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
+                                    )}><Edit/></button>
+                                </>
+                            )}
+                        </ModalContext.Consumer>
+                        <button type={'button'} className={'start-btn'} onClick={() =>{setMeditationStarted(true)}}><Start/></button>
+                    </div>
+                    <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
                 </div>
-                <div className={'btn-wrapper'}>
-                    <ModalContext.Consumer>
-                        {value => (
-                            <>
-                                <button type={'button'} className={'delete-btn'} onClick={() => value(
-                                    <DeletePopUpContext modalValue={value} id={props.id} index={props.cardIndex} deleteMeditation={props.deleteMeditation}/>)}><Cross/></button>
-                                <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                    <EditModalContent modalValue={value} id={props.id} index={props.cardIndex} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
-                                )}><Edit/></button>
-                            </>
-                        )}
-                    </ModalContext.Consumer>
-                    <Link to="/meditation-screen">
-                        <button type={'button'} className={'start-btn'}><Start/></button>
-                    </Link>
-                </div>
-                <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
-            </div>
+                {(meditationStarted) && <MeditationScreen/>}
+            </>
         </StyledMeditationCard>
     )
 }
