@@ -5,6 +5,7 @@ import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
 import FormikRadioInput from "../../../Components/FormikFields/FormikRadioInput.jsx";
 import {postMeditation} from "../../../api/meditationsApi.js";
+import {validateForm} from "../../../scripts/validation";
 
 const StyledAddModalContent = styled.div`
   .modal-title-wrapper {
@@ -155,9 +156,8 @@ const AddModalContent = (props) => {
                         isValid = false;
                         errors.login = 'Name is too long';
                     }
-                    if (!isValid) return errors;
-                }
-                } onSubmit={(formValues) => {
+                    if (!isValid) return errors;}}
+                        onSubmit={(formValues) => {
                     cardData.id = idReturner();                        // JUST LET IT BE SO
                     cardData.name = formValues.name;
                     cardData.description = formValues.description;

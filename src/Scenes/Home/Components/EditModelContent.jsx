@@ -6,6 +6,7 @@ import FormikRadioInput from "../../../Components/FormikFields/FormikRadioInput.
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
 import {putMeditation} from "../../../api/meditationsApi.js";
 import {editRenderTrigger} from "../Home.jsx";
+import {validateForm} from "../../../scripts/validation.js";
 
 const StyledEditModalContent = styled.div`
   .modal-title-wrapper {
@@ -150,7 +151,7 @@ const EditModalContent = (props) => {
 
     return (
         <StyledEditModalContent>
-            <React.Fragment>
+            <>
                 <div className={'modal-title-wrapper'}>
                     <p className={'modal-title'}>Editing Meditation</p>
                 </div>
@@ -165,8 +166,8 @@ const EditModalContent = (props) => {
                         errors.login = 'Name is too long';
                     }
                     if (!isValid) return errors;
-                }
-                } onSubmit={(formValues) => {
+                }}
+                 onSubmit={(formValues) => {
                     cardData.name = formValues.name;
                     cardData.description = formValues.description;
                     editMeditation(props.modalValue, props.setCardsList, props.cardsList);
@@ -203,7 +204,7 @@ const EditModalContent = (props) => {
                         </Form>
                     )}
                 </Formik>
-            </React.Fragment>
+            </>
         </StyledEditModalContent>
     )
 }
