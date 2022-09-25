@@ -20,7 +20,7 @@ const StyledModalWrapper = styled.div`
     border-radius: 10px;
     border: 2px solid ${props => props.theme.accentBackgroundColor};
     background: ${props => props.theme.accentBackgroundColor};
-    box-shadow:  0 0 15px black;
+    box-shadow:  0 0 20px black;
     align-items: center;
   }
 `

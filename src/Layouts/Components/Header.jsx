@@ -75,7 +75,7 @@ const Header = () => {
                     <Link to="/meditation-basics">
                         <li>Meditation Basics</li>
                     </Link>
-                    <Link to="/home">
+                    <Link to="/settings">
                         <li>Settings</li>
                     </Link>
                 </ul>

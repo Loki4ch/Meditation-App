@@ -30,7 +30,7 @@ const StyledDeletePopUpContext = styled.div`
     border-radius: 25px;
     background-color: #bc544b;
     transition: all 0.3s;
-    font-size: 15px;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;

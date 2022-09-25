@@ -7,6 +7,7 @@ import Start from '../../assets/icons/start.svg';
 import EditModalContent from "../../Scenes/Home/Components/EditModelContent.jsx";
 import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
 import DeletePopUpContext from "../../Scenes/Home/Components/DeletePopUpContext.jsx";
+import {Link, Navigate} from "react-router-dom";
 
 const StyledMeditationCard = styled.div`
   .main-wrapper-morning, .main-wrapper-afternoon, .main-wrapper-evening {
@@ -126,7 +127,9 @@ const MeditationCard = (props) => {
                             </>
                         )}
                     </ModalContext.Consumer>
-                    <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>
+                    <Link to="/meditation-screen">
+                        <button type={'button'} className={'start-btn'}><Start/></button>
+                    </Link>
                 </div>
                 <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
             </div>

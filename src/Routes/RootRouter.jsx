@@ -7,6 +7,9 @@ import {useSelector} from "react-redux";
 import Home from "../Scenes/Home/Home.jsx";
 import MeditationBasics from "../Scenes/MeditationBasics/MeditationBasics.jsx";
 import LoginLayout from "../Layouts/LoginLayout.jsx";
+import Settings from "../Scenes/Settings/Settings.jsx";
+import MeditationScreen from "../Scenes/MeditationScreen/MeditationScreen.jsx";
+import MeditationLayout from "../Layouts/MeditationLayout.jsx";
 
 const RootRouter = (props) => {
     const [redirectLocation, setRedirectLocation] = useState();
@@ -38,6 +41,8 @@ const RootRouter = (props) => {
             <Route path={'/login-page'} element={renderForGuestUser(<LoginLayout><LoginPage/></LoginLayout>)}></Route>
             <Route path={'/home'} element={renderForLoggedInUser(<MainLayout><Home/></MainLayout>)}></Route>
             <Route path={'/meditation-basics'} element={renderForLoggedInUser(<MainLayout><MeditationBasics/></MainLayout>)}></Route>
+            <Route path={'/settings'} element={renderForLoggedInUser(<MainLayout><Settings/></MainLayout>)}></Route>
+            <Route path={'/meditation-screen'} element={renderForLoggedInUser(<MeditationLayout><MeditationScreen/></MeditationLayout>)}></Route>
             <Route path={'*'} element={<Navigate to={'/login-page'}/>}/>
         </Routes>
     );

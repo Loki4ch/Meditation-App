@@ -1,3 +1,10 @@
 {
-  "meditations": []
+  "meditations": [
+    {
+      "id": 1,
+      "name": "1",
+      "description": "d",
+      "daytime": "afternoon"
+    }
+  ]
 }
