@@ -2,7 +2,7 @@ import React, {useCallback, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import AddMeditationBtn from "./Components/AddMeditationBtn.jsx";
 import MeditationCard from "../../Components/MeditationCard/MeditationCard.jsx";
-import {fetchMeditationsList} from "../../api/meditationsApi.js";
+import {fetchMeditationsList, removeMeditation} from "../../api/meditationsApi.js";
 import Spinner from "../../Components/Spinner/Spinner.jsx";
 
 const StyledHome = styled.div`
@@ -31,14 +31,19 @@ const Home = (props) => {
         console.log('USE EFFECT')
         const fetchData = async () => {
             const response = await fetchMeditationsList();
-            if (response.data.length !== cardsList.length) {
+            // if (response.data.length !== cardsList.length) {
 
+                console.log('RESPONSE DATA', response.data);
                 setCardsList(response.data);
-                console.log('RESPONSE DATA', response.data)
-            }
+                console.log('NOW CARDSLIST IS', cardsList);
+            // }
         }
         fetchData();
-    }, [])
+    }, [cardsList.length])
+
+    // useEffect(() => {
+    //     renderCards
+    // }, [])
 
     const checkListEmpty = () => {
         if (cardsList === undefined) return <Spinner/>;
@@ -52,6 +57,17 @@ const Home = (props) => {
 
     }
 
+    const deleteMeditation = (id, index) => {
+        removeMeditation(id);
+        const newCardsList = [...cardsList];
+        console.log(`INITIAL index is ${index}`)
+        newCardsList.splice(index, 1, {});
+        console.log(`deleted card ${index}`)
+        setCardsList(newCardsList);
+    }
+
+const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
+
     console.log('home rendered');
 
     return (
@@ -60,9 +76,9 @@ const Home = (props) => {
                 {checkListEmpty()}
                 {checkListLength()}
                 {console.log('CADRS LIST', cardsList)}
-                {(cardsList && cardsList.length) &&
-                    cardsList.map((card, index) => (
-                        <MeditationCard key={index} id={card.id} cardIndex={index} name={card.name} description={card.description} daytime={card.daytime} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
+                {/*{(cardsList && cardsList.length) &&*/}
+                {cardsList.map((card, index) => (
+                         <MeditationCard key={index} id={card.id} cardIndex={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>

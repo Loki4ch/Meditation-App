@@ -105,17 +105,6 @@ const setMeditationBackground = (daytimeId) => {
     else return '';
 }
 
-const deleteMeditation = (id, index, cardsList, setCardsList) => {
-    removeMeditation(id);
-    const newCardsList = [...cardsList];
-    console.log(`INITIAL index is ${index}`)
-    newCardsList.splice(index, 1);
-    console.log(`deleted card ${index}`)
-    setCardsList(newCardsList);
-}
-
-// const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
-
 const MeditationCard = (props) => {
     const [selectedCardData, setSelectedCardData] = useState({id: props.id, index: props.cardIndex, name: props.name, description: props.description, daytime: props.daytime});
 
@@ -127,7 +116,7 @@ const MeditationCard = (props) => {
                     <p className={'description-wrapper'}>{selectedCardData.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
-                    <button type={'button'} className={'delete-btn'} onClick={() => {deleteMeditation(selectedCardData.id, selectedCardData.index, props.cardsList, props.setCardsList)}}><Cross/></button>
+                    <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.id, props.cardIndex)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(
