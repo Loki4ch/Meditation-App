@@ -24,6 +24,8 @@ const StyledHome = styled.div`
   }
 `
 
+export let editRenderTrigger = 1;
+
 const Home = (props) => {
     const [cardsList, setCardsList] = useState([]);
 
@@ -31,15 +33,14 @@ const Home = (props) => {
         console.log('USE EFFECT')
         const fetchData = async () => {
             const response = await fetchMeditationsList();
-            // if (response.data.length !== cardsList.length) {
-
+            if (response.data.length !== cardsList.length) {
                 console.log('RESPONSE DATA', response.data);
                 setCardsList(response.data);
                 console.log('NOW CARDSLIST IS', cardsList);
-            // }
+            }
         }
         fetchData();
-    }, [cardsList.length])
+    }, [cardsList.length, editRenderTrigger])
 
     const checkListEmpty = () => {
         if (cardsList === undefined) return <Spinner/>;

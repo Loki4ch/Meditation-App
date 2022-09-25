@@ -5,6 +5,7 @@ import FormikInput from "../../../Components/FormikFields/FormikInput.jsx";
 import FormikRadioInput from "../../../Components/FormikFields/FormikRadioInput.jsx";
 import FormikTextArea from "../../../Components/FormikFields/FormikTextArea.jsx";
 import {putMeditation} from "../../../api/meditationsApi.js";
+import {editRenderTrigger} from "../Home.jsx";
 
 const StyledEditModalContent = styled.div`
   .modal-title-wrapper {
@@ -132,11 +133,13 @@ const EditModalContent = (props) => {
                 console.log(error);
             });
         console.log('PROPS ID', props.id)
-        // let removed = cardsList.splice(props.index, 1, cardData);
+        console.log('PROPS INDEX', props.index);
+        let removed = cardsList.splice(props.index, 1, cardData);
         // return setCardsList(cardsList.splice(props.id, 1));
-        // console.log('AFTER CARDS LIST', cardsList)
-        // props.setSelectedCardData(cardData);
-        // return setCardsList(cardsList);
+        console.log('AFTER CARDS LIST', cardsList)
+        props.setCardsList([...cardsList])
+        editRenderTrigger++;
+        return setCardsList(cardsList);
     };
 
     const defaultDaytimeCheck = (pickedDaytime) => {

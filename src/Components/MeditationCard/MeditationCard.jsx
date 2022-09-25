@@ -119,7 +119,7 @@ const MeditationCard = (props) => {
                     <ModalContext.Consumer>
                         {value => (
                             <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                <EditModalContent modalValue={value} id={props.id} index={props.index} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
+                                <EditModalContent modalValue={value} id={props.id} index={props.cardIndex} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
                             )}><Edit/></button>
                         )}
                     </ModalContext.Consumer>
