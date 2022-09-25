@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Edit from '../../assets/icons/edit.svg';
@@ -6,7 +6,7 @@ import Cross from '../../assets/icons/cross.svg';
 import Start from '../../assets/icons/start.svg';
 import EditModalContent from "../../Scenes/Home/Components/EditModelContent.jsx";
 import {ModalContext} from "../../HOC/GlobalModalProvider.jsx";
-import {removeMeditation} from "../../api/meditationsApi.js";
+import DeletePopUpContext from "../../Scenes/Home/Components/DeletePopUpContext.jsx";
 
 const StyledMeditationCard = styled.div`
   .main-wrapper-morning, .main-wrapper-afternoon, .main-wrapper-evening {
@@ -115,12 +115,15 @@ const MeditationCard = (props) => {
                     <p className={'description-wrapper'}>{props.description}</p>
                 </div>
                 <div className={'btn-wrapper'}>
-                    <button type={'button'} className={'delete-btn'} onClick={() => {props.deleteMeditation(props.id, props.cardIndex)}}><Cross/></button>
                     <ModalContext.Consumer>
                         {value => (
-                            <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                <EditModalContent modalValue={value} id={props.id} index={props.cardIndex} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
-                            )}><Edit/></button>
+                            <>
+                                <button type={'button'} className={'delete-btn'} onClick={() => value(
+                                    <DeletePopUpContext modalValue={value} id={props.id} index={props.cardIndex} deleteMeditation={props.deleteMeditation}/>)}><Cross/></button>
+                                <button type={'button'} className={'edit-btn'} onClick={() => value(
+                                    <EditModalContent modalValue={value} id={props.id} index={props.cardIndex} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
+                                )}><Edit/></button>
+                            </>
                         )}
                     </ModalContext.Consumer>
                     <button type={'button'} className={'start-btn'} onClick={() => {console.log(('Meditation started'))}}><Start/></button>

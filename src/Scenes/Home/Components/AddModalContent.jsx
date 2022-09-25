@@ -32,7 +32,7 @@ const StyledAddModalContent = styled.div`
   }
 
   .text-area {
-    width: 100%;
+    min-width: 476px;
     height: 150px;
     padding: 10px;
     resize: none;

@@ -15,8 +15,7 @@ const StyledModalWrapper = styled.div`
   font-size: 18px;
   
   .modal-window {
-    width: 500px;
-    min-height: 200px;
+    min-height: 100px;
     padding: 5px 10px 10px 10px;
     border-radius: 10px;
     border: 2px solid ${props => props.theme.accentBackgroundColor};
