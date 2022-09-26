@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import pineLight from '../../assets/images/pineLight.jpg'
+import Timer from "../../Components/MyTimer/MyTimer.jsx";
 
 const StyledMeditationScreen = styled.div`
-  .main-wrapper {
     position: absolute;
     width: 100vw;
     height: 100%;
     top: -100vh;
     left: 0;
-    background-color: orangered;
+    background-image: URL(${pineLight});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     z-index: 2999;
     -webkit-animation-duration: 3s;
     animation-duration: 3s;
@@ -16,6 +20,9 @@ const StyledMeditationScreen = styled.div`
     animation-fill-mode: both;
     -webkit-animation-name: slideDown;
     animation-name: slideDown;
+  
+  .main-wrapper {
+    
   }
 
   @-webkit-keyframes slideDown {
@@ -26,6 +33,28 @@ const StyledMeditationScreen = styled.div`
     0% {top: -100vh;}
     100% {top: 0;}
   }
+
+  .cancel-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    color: ${props => props.theme.baseFontColor};
+    background-color: ${props => props.theme.accentBackgroundColor};
+    font-size: 40px;
+    transition: all 0.3s;
+    letter-spacing: 0;
+    padding-bottom: 5px;
+  }
+
+  .cancel-btn:hover {
+    box-shadow: 0 0 10px white;
+    text-shadow: 0 0 10px white;
+  }
+
+  .cancel-btn:active {
+    background: ${props => props.theme.baseBackgroundColor};
+  }
 `
 
 console.log('meditation screen rendered')
@@ -35,7 +64,8 @@ const MeditationScreen = (props) => {
     return (
         <StyledMeditationScreen>
             <div className={'main-wrapper'}>
-
+                {Timer()}
+                <button type={'button'} className={'cancel-btn'} onClick={() => {props.setMeditationStarted(false)}}>+</button>
             </div>
         </StyledMeditationScreen>
     );

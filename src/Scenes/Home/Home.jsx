@@ -6,7 +6,6 @@ import {fetchMeditationsList, removeMeditation} from "../../api/meditationsApi.j
 import Spinner from "../../Components/Spinner/Spinner.jsx";
 
 const StyledHome = styled.div`
-  
   .alert-text {
     position: absolute;
     top: 70px;

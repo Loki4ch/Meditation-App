@@ -5,6 +5,8 @@ import {Outlet} from "react-router-dom";
 import Header from "./Components/Header.jsx";
 import Footer from "./Components/Footer.jsx";
 import sakuraImg from '../assets/images/sakura-30.png'
+import pineLight from '../assets/images/pineLight.jpg'
+import pinkNature from '../assets/images/pinkNature.jpg'
 
 const StyledMainLayout = styled.div`
   position: relative;
@@ -15,7 +17,7 @@ const StyledMainLayout = styled.div`
     overflow: auto;
     background-color: ${props => props.theme.baseBackgroundColor};
     background-image: URL(${sakuraImg});
-    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .content {

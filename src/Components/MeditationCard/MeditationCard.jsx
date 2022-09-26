@@ -134,7 +134,7 @@ const MeditationCard = (props) => {
                     </div>
                     <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
                 </div>
-                {(meditationStarted) && <MeditationScreen/>}
+                {(meditationStarted) && <MeditationScreen meditationStarted={meditationStarted} setMeditationStarted={setMeditationStarted}/>}
             </>
         </StyledMeditationCard>
     )
