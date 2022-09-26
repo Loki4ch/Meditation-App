@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import pineLight from '../../assets/images/pineLight.jpg'
 import Timer from "../../Components/MyTimer/MyTimer.jsx";
+import Cross from '../../assets/icons/cross.svg';
 
 const StyledMeditationScreen = styled.div`
     position: absolute;
@@ -34,22 +35,33 @@ const StyledMeditationScreen = styled.div`
     100% {top: 0;}
   }
 
+  .cancel-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .cancel-btn {
-    width: 60px;
-    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
     color: ${props => props.theme.baseFontColor};
     background-color: ${props => props.theme.accentBackgroundColor};
-    font-size: 40px;
+    font-size: 20px;
     transition: all 0.3s;
     letter-spacing: 0;
-    padding-bottom: 5px;
+    padding: 5px;
+    transform: translateY(-23px);
+    box-shadow: 0 0 15px white;
   }
 
   .cancel-btn:hover {
-    box-shadow: 0 0 10px white;
-    text-shadow: 0 0 10px white;
+    box-shadow: 0 0 15px red;
+    text-shadow: 0 0 15px red;
   }
 
   .cancel-btn:active {
@@ -65,7 +77,9 @@ const MeditationScreen = (props) => {
         <StyledMeditationScreen>
             <div className={'main-wrapper'}>
                 {Timer()}
-                <button type={'button'} className={'cancel-btn'} onClick={() => {props.setMeditationStarted(false)}}>+</button>
+                <div className={'cancel-btn-wrapper'}>
+                    <button type={'button'} className={'cancel-btn'} onClick={() => {props.setMeditationStarted(false)}}><Cross/></button>
+                </div>
             </div>
         </StyledMeditationScreen>
     );
