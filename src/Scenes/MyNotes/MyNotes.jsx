@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledSettings = styled.div`
+const StyledMyNotes = styled.div`
   .main-wrapper {
     position: absolute;
     top: 120px;
@@ -19,15 +19,15 @@ const StyledSettings = styled.div`
 `
 
 
-const Settings = (props) => {
+const MyNotes = (props) => {
 
     return (
-        <StyledSettings>
-            <div className={'main-wrapper'}>Settings coming soon...</div>
-        </StyledSettings>
+        <StyledMyNotes>
+            <div className={'main-wrapper'}>My Notes coming soon...</div>
+        </StyledMyNotes>
     );
 }
 
-Settings.propTypes = {};
+MyNotes.propTypes = {};
 
-export default Settings;
+export default MyNotes;

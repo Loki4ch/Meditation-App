@@ -8,6 +8,7 @@ import Home from "../Scenes/Home/Home.jsx";
 import MeditationBasics from "../Scenes/MeditationBasics/MeditationBasics.jsx";
 import LoginLayout from "../Layouts/LoginLayout.jsx";
 import Settings from "../Scenes/Settings/Settings.jsx";
+import MyNotes from "../Scenes/MyNotes/MyNotes.jsx";
 
 const RootRouter = (props) => {
     const [redirectLocation, setRedirectLocation] = useState();
@@ -38,6 +39,7 @@ const RootRouter = (props) => {
         <Routes>
             <Route path={'/login-page'} element={renderForGuestUser(<LoginLayout><LoginPage/></LoginLayout>)}></Route>
             <Route path={'/home'} element={renderForLoggedInUser(<MainLayout><Home/></MainLayout>)}></Route>
+            <Route path={'/my-notes'} element={renderForLoggedInUser(<MainLayout><MyNotes/></MainLayout>)}></Route>
             <Route path={'/meditation-basics'} element={renderForLoggedInUser(<MainLayout><MeditationBasics/></MainLayout>)}></Route>
             <Route path={'/settings'} element={renderForLoggedInUser(<MainLayout><Settings/></MainLayout>)}></Route>
             <Route path={'*'} element={<Navigate to={'/login-page'}/>}/>
