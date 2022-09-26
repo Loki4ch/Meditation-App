@@ -32,7 +32,6 @@ const GlobalThemeWrapper = (props) => {
     const [themeState, setThemeState] = useState('light');
 
     const themeSwitch = (themeMode) => {
-        // setThemeState(() => {return themeState === 'light' ? 'dark' : 'light'})
         console.log('Theme changed')
         setThemeState(themeMode);
     }
