@@ -1,22 +1,18 @@
 {
   "meditations": [
     {
-      "id": 1,
-      "name": "1",
-      "description": "d",
-      "daytime": "afternoon"
-    },
-    {
-      "id": 2,
-      "name": "2",
-      "description": "2",
-      "daytime": "evening"
-    },
-    {
-      "id": 5,
-      "name": "ыва",
-      "description": "ыва",
+      "id": 6,
+      "name": "122",
+      "duration": "10",
+      "description": "dsf",
       "daytime": "morning"
+    },
+    {
+      "id": 7,
+      "name": "1",
+      "duration": "15",
+      "description": "sdfsd",
+      "daytime": "evening"
     }
   ]
 }

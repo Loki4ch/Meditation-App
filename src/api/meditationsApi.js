@@ -8,17 +8,17 @@ export const fetchMeditationsList = async () => {
     }
 }
 
-export const postMeditation = async ({id, name, description, daytime}) => {
+export const postMeditation = async ({id, name, duration, description, daytime}) => {
     try {
-        return await fakeServerInstance.post("/meditations", {id, name, description, daytime});
+        return await fakeServerInstance.post("/meditations", {id, name, duration, description, daytime});
     } catch (e) {
         console.log(e);
     }
 }
 
-export const putMeditation = async (id, {name, description, daytime}) => {
+export const putMeditation = async (id, {name, duration, description, daytime}) => {
     try {
-        return await fakeServerInstance.put(`/meditations/${id}`, {id, name, description, daytime});
+        return await fakeServerInstance.put(`/meditations/${id}`, {id, name, duration, description, daytime});
     } catch (e) {
         console.log(e);
     }

@@ -73,7 +73,7 @@ const goodCallback = useCallback(deleteMeditation, [cardsList.length]);
                 {console.log('CADRS LIST', cardsList)}
                 {(cardsList && !!cardsList.length) &&
                     cardsList.map((card, index) => (
-                         <MeditationCard key={index} id={card.id} cardIndex={index} name={card.name} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
+                         <MeditationCard key={index} id={card.id} cardIndex={index} name={card.name} duration={card.duration} description={card.description} daytime={card.daytime} deleteMeditation={goodCallback} editMeditation={editMeditation} cardsList={cardsList} setCardsList={setCardsList}/>
                     ))
                 }
                 <AddMeditationBtn cardsList={cardsList} setCardsList={setCardsList}/>

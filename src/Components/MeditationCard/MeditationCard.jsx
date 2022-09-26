@@ -91,6 +91,22 @@ const StyledMeditationCard = styled.div`
     bottom: 0;
     left: 20px;
   }
+  
+  .duration-wrapper {
+    position: absolute;
+    width: 100px;
+    height: 35px;
+    top: 10px;
+    right: 100px;
+    border-radius: 25px;
+    border: none;
+    color: ${props => props.theme.baseFontColor};
+    background-color: #5072A7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px black;
+  }
 `
 
 const setMeditationDaytime = (daytimeId) => {
@@ -118,6 +134,9 @@ const MeditationCard = (props) => {
                         <p className={'card-header'}>{props.name}</p>
                         <p className={'description-wrapper'}>{props.description}</p>
                     </div>
+                    <div className={'duration-wrapper'}>
+                        {props.duration} min
+                    </div>
                     <div className={'btn-wrapper'}>
                         <ModalContext.Consumer>
                             {value => (
@@ -125,7 +144,7 @@ const MeditationCard = (props) => {
                                     <button type={'button'} className={'delete-btn'} onClick={() => value(
                                         <DeletePopUpContext modalValue={value} id={props.id} index={props.cardIndex} deleteMeditation={props.deleteMeditation}/>)}><Cross/></button>
                                     <button type={'button'} className={'edit-btn'} onClick={() => value(
-                                        <EditModalContent modalValue={value} id={props.id} index={props.cardIndex} name={props.name} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
+                                        <EditModalContent modalValue={value} id={props.id} index={props.cardIndex} name={props.name} duration={props.duration} description={props.description} daytime={props.daytime} cardsList={props.cardsList} setCardsList={props.setCardsList} editMeditation={props.editMeditation}/>
                                     )}><Edit/></button>
                                 </>
                             )}
@@ -134,7 +153,7 @@ const MeditationCard = (props) => {
                     </div>
                     <p className={'daytime-info-text'}>{setMeditationDaytime(props.daytime)}</p>
                 </div>
-                {(meditationStarted) && <MeditationScreen meditationStarted={meditationStarted} setMeditationStarted={setMeditationStarted}/>}
+                {(meditationStarted) && <MeditationScreen meditationStarted={meditationStarted} setMeditationStarted={setMeditationStarted} duration={props.duration}/>}
             </>
         </StyledMeditationCard>
     )

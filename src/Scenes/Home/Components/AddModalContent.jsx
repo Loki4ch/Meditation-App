@@ -106,12 +106,14 @@ const StyledAddModalContent = styled.div`
 const AddModalContent = (props) => {
     const initialFormValues = {
         name: '',
+        duration: '',
         description: '',
     };
 
     const cardData = {
         id: 0,
         name: '',
+        duration: '',
         description: '',
         daytime: 'morning',
     };
@@ -121,6 +123,7 @@ const AddModalContent = (props) => {
         value(false);
         postMeditation({
             id: cardData.id,
+            duration: cardData.duration,
             name: cardData.name,
             description: cardData.description,
             daytime: cardData.daytime
@@ -155,11 +158,15 @@ const AddModalContent = (props) => {
                     } else if (formValues.name.length > 43) {
                         isValid = false;
                         errors.login = 'Name is too long';
+                    } else if (!formValues.duration) {
+                        isValid = false;
+                        errors.login = 'Duration is mandatory';
                     }
                     if (!isValid) return errors;}}
                         onSubmit={(formValues) => {
                     cardData.id = idReturner();                        // JUST LET IT BE SO
                     cardData.name = formValues.name;
+                    cardData.duration = formValues.duration;
                     cardData.description = formValues.description;
                     addMeditation(props.modalValue, props.setCardsList, props.cardsList);
                 }}>
@@ -168,6 +175,7 @@ const AddModalContent = (props) => {
                             <div className={'form'}>
                                 <div className={'input-fields-wrapper'}>
                                     <FormikInput className={'input-field'} name={'name'} placeholder={'Enter name...'} type={'text'} label={'Name'}/>
+                                    <FormikInput className={'input-field'} name={'duration'} placeholder={'Enter duration...'} type={'text'} label={'Meditation duration (minutes)'}/>
                                     <FormikTextArea className={'text-area'} control={'textarea'} name={'description'} placeholder={'Enter description...'} type={'text'} label={'Description'}/>
                                 </div>
                                 <p className={'radio-group-title'} id={"radio-group"}>Meditation daytime</p>
