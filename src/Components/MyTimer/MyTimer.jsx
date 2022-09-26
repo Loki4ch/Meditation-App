@@ -33,7 +33,7 @@ const StyledMyTimer = styled.div`
   }
   
   .button {
-                    //сделать ерроры в формике, авторизацию, таблицу, стилизнуть радио, разные картинки в завис от дейтайма, передачу времени в таймер, что то по завершении медитаци, смену темы
+                    //сделать ерроры в формике, авторизацию, таблицу, стилизнуть радио
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -91,7 +91,6 @@ const MyTimer = ({ expiryTimestamp }) => {
                     <button className={classNames('button', 'pause-btn')} onClick={pause}><Pause/></button>
                     <button className={classNames('button', 'resume-btn')} onClick={resume}><Resume/></button>
                     <button className={classNames('button', 'restart-btn')} onClick={() => {
-                        // Restarts to 5 minutes timer
                         const time = new Date();
                         time.setSeconds(time.getSeconds() + 300);
                         restart(time)

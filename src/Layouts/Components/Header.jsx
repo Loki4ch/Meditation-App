@@ -2,8 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import Logo from '../../assets/images/logoImg.png';
-import {useDispatch} from "react-redux";
-import {userLoggedIn} from "../../store/userSlice.js";
+import TransparentLogo from '../../assets/images/transparentLogo.png';
 
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.accentBackgroundColor};
@@ -65,7 +64,7 @@ const Header = () => {
         <StyledHeader>
             <div className="header-wrapper">
                 <Link to="/home">
-                    <img src={Logo} className="header-logo" alt={'Logo'}/>
+                    <img src={TransparentLogo} className="header-logo" alt={'Logo'}/>
                 </Link>
                 <ul>
                     <Link to="/home">

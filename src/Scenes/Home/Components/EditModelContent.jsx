@@ -40,7 +40,7 @@ const StyledEditModalContent = styled.div`
   }
 
   .input-field:focus, .text-area:focus {
-    box-shadow:  0 0 12px white;
+    box-shadow:  0 0 15px white;
     outline: none;
     transition: all 0.3s;
   }
@@ -66,8 +66,8 @@ const StyledEditModalContent = styled.div`
 
   .radio-input-field {
     margin-right: 10px;
-    //width: 1px;
-    //height: 1px;
+    width: 1px;
+    height: 1px;
   }
 
   .btn-wrapper {
@@ -167,7 +167,8 @@ const EditModalContent = (props) => {
                     } else if (formValues.name.length > 43) {
                         isValid = false;
                         errors.login = 'Name is too long';
-                    } else if (!formValues.duration) {
+                    }
+                    if (!formValues.duration) {
                         isValid = false;
                         errors.login = 'Duration is mandatory';
                     }
@@ -192,6 +193,7 @@ const EditModalContent = (props) => {
                                     {!!(defaultDaytimeCheck(values.picked))}
                                     <label className={'radio-label'}>
                                         <FormikRadioInput className={'radio-input-field'} name={'picked'} type={"radio"} value={'morning'} daytime={cardData.daytime}/>
+                                        <span className={'span'}></span>
                                         morning
                                     </label>
                                     <label className={'radio-label'}>

@@ -73,17 +73,19 @@ const LoginPage = (props) => {
                         console.log('validate');
                 let isValid = true;
                 const errors = {};
-
                 if (!formValues.login) {
                     isValid = false;
                     errors.login = 'Login is mandatory';
+                } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formValues.login)) {
+                    errors.login = 'Invalid email address';
                 }
-
                 if (!formValues.password) {
                     isValid = false;
                     errors.password = 'Password is mandatory';
+                } else if (formValues.password.length > 8) {
+                    isValid = false;
+                    errors.login = 'Password too long';
                 }
-
                 if (!isValid) return errors;
             }}>
                 <Form>

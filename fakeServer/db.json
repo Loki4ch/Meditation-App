@@ -1,18 +1,25 @@
 {
   "meditations": [
     {
-      "id": 6,
-      "name": "122",
-      "duration": "10",
-      "description": "dsf",
+      "id": 1,
+      "name": "Mindfulness meditation",
+      "duration": "20",
+      "description": "In mindfulness meditation, you pay attention to your thoughts as they pass through your mind. You don’t judge the thoughts or become involved with them. You simply observe and take note of any patterns.\n",
       "daytime": "morning"
     },
     {
-      "id": 7,
-      "name": "1",
+      "id": 2,
+      "name": "Spiritual meditation",
       "duration": "15",
-      "description": "sdfsd",
+      "description": "Spiritual meditation can be practiced at home or in a place of worship. This practice is beneficial for those who seek spiritual growth and a deeper connection to a higher power or spiritual force.",
       "daytime": "evening"
+    },
+    {
+      "id": 3,
+      "name": "Mantra meditation",
+      "duration": "35",
+      "description": "Mantra meditation is prominent in many teachings, including Hindu and Buddhist traditions. This type of meditation uses a repetitive sound to clear the mind. It can be a word, phrase, or sound, one of the most common being “om.”",
+      "daytime": "afternoon"
     }
   ]
 }

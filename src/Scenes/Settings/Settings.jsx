@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {userLoggedOut} from "../../store/userSlice.js";
+import {ThemeFunctionContext} from "../../HOC/GlobalThemeWrapper.jsx";
 
 const StyledSettings = styled.div`
   .main-wrapper {
@@ -85,8 +86,12 @@ const Settings = (props) => {
                 <div className={'inner-wrapper'}>
                     <p className={'subtitle'}>Theme mode:</p>
                     <div className={'theme-btn-wrapper'}>
-                        <button className={'light-theme-btn'}>Light</button>
-                        <button className={'dark-theme-btn'}>Dark</button>
+                        <ThemeFunctionContext.Consumer>
+                            {value => <button className={'light-theme-btn'} type={'button'} onClick={() => {value('light')}}>Light</button>}
+                        </ThemeFunctionContext.Consumer>
+                        <ThemeFunctionContext.Consumer>
+                            {value => <button className={'dark-theme-btn'} type={'button'} onClick={() => {value('dark')}}>Dark</button>}
+                        </ThemeFunctionContext.Consumer>
                     </div>
                     <p className={'subtitle'}>My account:</p>
                     <div className={'email'}>{user.name}</div>

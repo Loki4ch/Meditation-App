@@ -39,7 +39,7 @@ const StyledAddModalContent = styled.div`
   }
   
   .input-field:focus, .text-area:focus {
-    box-shadow:  0 0 12px white;
+    box-shadow:  0 0 15px white;
     outline: none;
     transition: all 0.3s;
   }
