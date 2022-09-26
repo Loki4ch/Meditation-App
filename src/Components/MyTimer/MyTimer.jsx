@@ -15,10 +15,12 @@ const StyledMyTimer = styled.div`
   
   .is-meditating-text {
     font-size: 20px;
+    text-shadow: 0 0 7px white;
   }
   
   .time {
     font-size: 100px;
+    text-shadow: 0 0 7px white;
   }
   
   .btn-wrapper {
@@ -100,9 +102,9 @@ const MyTimer = ({ expiryTimestamp }) => {
     );
 }
 
-export default function Timer() {
+export default function Timer(timerValue) {
     const time = new Date();
-    time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
+    time.setSeconds(time.getSeconds() + timerValue); // 10 minutes timer
     return (
         <div>
             <MyTimer expiryTimestamp={time} />

@@ -76,7 +76,7 @@ const MeditationScreen = (props) => {
     return (
         <StyledMeditationScreen>
             <div className={'main-wrapper'}>
-                {Timer()}
+                {Timer(300)}
                 <div className={'cancel-btn-wrapper'}>
                     <button type={'button'} className={'cancel-btn'} onClick={() => {props.setMeditationStarted(false)}}><Cross/></button>
                 </div>
