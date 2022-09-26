@@ -66,8 +66,8 @@ const StyledEditModalContent = styled.div`
 
   .radio-input-field {
     margin-right: 10px;
-    width: 1px;
-    height: 1px;
+    //width: 1px;
+    //height: 1px;
   }
 
   .btn-wrapper {
