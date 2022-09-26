@@ -13,7 +13,7 @@ import MyNotes from "../Scenes/MyNotes/MyNotes.jsx";
 const RootRouter = (props) => {
     const [redirectLocation, setRedirectLocation] = useState();
     const location = useLocation();
-    const user = useSelector(store => store.userSlice);
+    const user = useSelector(store => store.user);
 
     const renderForGuestUser = (Scene) => {
         if (!user.isLoggedIn) {

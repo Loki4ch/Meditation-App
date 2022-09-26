@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 import Logo from '../../assets/images/logoImg.png';
+import {useDispatch} from "react-redux";
+import {userLoggedIn} from "../../store/userSlice.js";
 
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.accentBackgroundColor};

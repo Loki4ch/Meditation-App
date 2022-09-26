@@ -95,7 +95,7 @@ const StyledMeditationCard = styled.div`
   .duration-wrapper {
     position: absolute;
     width: 100px;
-    height: 35px;
+    height: 25px;
     top: 10px;
     right: 100px;
     border-radius: 25px;
