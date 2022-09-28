@@ -24,8 +24,9 @@ const StyledMyTimer = styled.div`
   }
   
   .btn-wrapper {
-    margin-top: 520px;
-    margin-bottom: 0;
+    position: absolute;
+    top: 80%;
+    left: calc(50% - 138px);
     display: flex;
     justify-content: center;
     align-items: center;
