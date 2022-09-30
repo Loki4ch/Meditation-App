@@ -22,10 +22,6 @@ const StyledMeditationScreen = styled.div`
     -webkit-animation-name: slideDown;
     animation-name: slideDown;
   
-  .main-wrapper {
-    
-  }
-
   @-webkit-keyframes slideDown {
     0% {top: -100vh;}
     100% {top: 0;}
@@ -39,12 +35,12 @@ const StyledMeditationScreen = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 92%;
+    left: calc(50% - 20px);
   }
   
   .cancel-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
