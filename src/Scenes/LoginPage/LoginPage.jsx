@@ -21,7 +21,6 @@ const StyledLoginPage = styled.div`
     background: transparent;
     border: 1px  solid ${props => props.theme.accentBackgroundColor};
   }
-
   
   .input-field:focus {
     box-shadow:  0 0 12px ${props => props.theme.accentBackgroundColor};
