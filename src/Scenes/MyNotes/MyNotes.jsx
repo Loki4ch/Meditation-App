@@ -24,7 +24,6 @@ const MyNotes = (props) => {
     return (
         <StyledMyNotes>
 
-
         </StyledMyNotes>
     );
 }
