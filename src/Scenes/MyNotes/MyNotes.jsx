@@ -23,7 +23,8 @@ const MyNotes = (props) => {
 
     return (
         <StyledMyNotes>
-            <div className={'main-wrapper'}>My Notes coming soon...</div>
+
+
         </StyledMyNotes>
     );
 }
