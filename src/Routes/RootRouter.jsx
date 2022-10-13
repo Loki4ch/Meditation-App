@@ -35,7 +35,6 @@ const RootRouter = (props) => {
         }
     }
 
-
     return (
         <Routes>
             <Route path={'/login-page'} element={renderForGuestUser(<LoginLayout><LoginPage/></LoginLayout>)}></Route>
