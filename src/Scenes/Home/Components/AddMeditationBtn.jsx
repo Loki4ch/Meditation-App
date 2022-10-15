@@ -19,11 +19,12 @@ const StyledAddMeditationBtn = styled.div`
     transition: all 0.3s;
     letter-spacing: 0;
     padding-bottom: 5px;
+    box-shadow: 0 0 10px white;
   }
   
   .add-btn:hover {
-    box-shadow: 0 0 10px white;
-    text-shadow: 0 0 10px white;
+    box-shadow: 0 0 15px white;
+    text-shadow: 0 0 15px white;
   }
 
   .add-btn:active {

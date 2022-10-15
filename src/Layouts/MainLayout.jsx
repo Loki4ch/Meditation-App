@@ -4,9 +4,7 @@ import styled from 'styled-components';
 import {Outlet} from "react-router-dom";
 import Header from "./Components/Header.jsx";
 import Footer from "./Components/Footer.jsx";
-import sakuraImg from '../assets/images/sakura-30.png'
-import pineLight from '../assets/images/pineLight.jpg'
-import pinkNature from '../assets/images/pinkNature.jpg'
+import sakuraImg from '../assets/images/mount.png'
 
 const StyledMainLayout = styled.div`
   position: relative;
