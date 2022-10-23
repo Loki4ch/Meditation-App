@@ -62,7 +62,6 @@ const LoginPage = (props) => {
     }
 
 
-
     return (
         <StyledLoginPage>
             <Formik initialValues={initialFormValues} onSubmit={(formValues) => {
