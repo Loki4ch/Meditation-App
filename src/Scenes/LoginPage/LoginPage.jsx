@@ -70,7 +70,6 @@ const LoginPage = (props) => {
                 navigate('/home');
                 }
             }
-
                     validate={(formValues) => {
                         console.log('validate');
                 let isValid = true;
