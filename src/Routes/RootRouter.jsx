@@ -10,7 +10,6 @@ import LoginLayout from "../Layouts/LoginLayout.jsx";
 import Settings from "../Scenes/Settings/Settings.jsx";
 import MyNotes from "../Scenes/MyNotes/MyNotes.jsx";
 
-
 const RootRouter = (props) => {
     const [redirectLocation, setRedirectLocation] = useState();
     const location = useLocation();
