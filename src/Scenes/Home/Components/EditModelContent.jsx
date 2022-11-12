@@ -146,6 +146,7 @@ const EditModalContent = (props) => {
         return setCardsList(cardsList);
     };
 
+
     const defaultDaytimeCheck = (pickedDaytime) => {
         if (pickedDaytime) {
             cardData.daytime = pickedDaytime;
