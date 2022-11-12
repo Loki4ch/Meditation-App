@@ -33,7 +33,6 @@ const StyledMyTimer = styled.div`
     gap: 25px;
   }
   
-  
   .button {
                     //сделать ерроры в формике, авторизацию, таблицу, стилизнуть радио
     width: 50px;
