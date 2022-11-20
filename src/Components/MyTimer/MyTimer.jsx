@@ -23,6 +23,7 @@ const StyledMyTimer = styled.div`
     text-shadow: 0 0 7px white;
   }
   
+  
   .btn-wrapper {
     position: absolute;
     top: 80%;
